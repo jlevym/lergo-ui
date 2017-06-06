@@ -34,9 +34,8 @@
  * Exposes question CRUD from lesson edit view.
  *
  */
-
 angular.module('lergoApp').controller('QuestionsAddUpdateDialogCtrl',
-		function($scope, $modalInstance, quizItem, lessonOverrideQuestion, QuestionsService, isUpdate, $controller, step, addItemToQuiz, $log, $filter) {
+		function($scope, $uibModalInstance, quizItem, lessonOverrideQuestion, QuestionsService, isUpdate, $controller, step, addItemToQuiz, $log, $filter) {
 
 			$scope.quizItem = quizItem;
 			// this object will be updated by child scope

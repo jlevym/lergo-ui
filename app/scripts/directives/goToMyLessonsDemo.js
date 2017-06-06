@@ -31,7 +31,7 @@ angular.module('lergoApp')
                 });
 
                 $scope.openGoToMyLessonsDemoDialog = function () {
-                    modalInstance = $modal.open({
+                    modalInstance = $uibModal.open({
                         templateUrl: 'goToMyLessonsDemoDialog.html',
                         size: 'lg',
                         windowClass: 'go-to-my-lessons-demo-dialog',

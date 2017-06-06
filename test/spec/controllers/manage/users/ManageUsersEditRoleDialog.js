@@ -7,7 +7,7 @@ describe('Controller: ManageUsersEditRoleDialogCtrl', function () {
 
     var ManageUsersEditRoleDialogCtrl,
         LergoClient,
-        $modalInstance,
+        $uibModalInstance,
         $controller,
         scope;
 
@@ -16,7 +16,7 @@ describe('Controller: ManageUsersEditRoleDialogCtrl', function () {
         scope = $rootScope.$new();
         $controller = _$controller_;
         LergoClient = _LergoClient_;
-        $modalInstance = _$modalInstance_;
+        $modalInstance = _$uibModalInstance_;
         ManageUsersEditRoleDialogCtrl = $controller('ManageUsersEditRoleDialogCtrl', {
             $scope: scope
         });
