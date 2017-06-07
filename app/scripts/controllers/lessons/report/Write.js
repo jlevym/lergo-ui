@@ -146,7 +146,7 @@ angular.module('lergoApp').controller('LessonsReportWriteCtrl',
                 angular.forEach(step.quizItems, function (q) {
                     var d = $q.defer();
                     var questionPromise = LergoClient.questions.getQuestionById(q);
-                    questionPromise.success(function (question) {
+                    questionPromise.then(function (question) {
                         if (question.type !== 'openQuestion') {
                             numberOfQuestions++;
                         }
