@@ -57,17 +57,13 @@
                             <ul class="dropdown-menu" role="menu">
                                 <li> <select ng-model="baseLayout.language" ng-options="lang.id as ( 'general.translationLanguage.' + lang.id | translate ) for lang in baseLayout.lergoLanguages" tooltip="{{'baseLayout.header.siteLanguage' | translate}}" tooltip-placement="right"></select></a>
                                 </li>
-                                <!--<li><a href="#">Hebrew</a>
-                                </li>
-                                <li><a href="#">Arabic</a>
-                                <li><a href="#">Russian</a>
-                                </li>-->
                             </ul>
                         </li>
-                            <li><div profile-login-button="$root.user"></div></a>
-                        </li>
-                        </li>
                     </ul>
+                    <div class="header-actions">
+                        <div profile-login-button="$root.user"></div>
+                    </div>
+                  <!-- <div profile-login-button="$root.user"></div>-->
                 </div>
             </nav>
         </div>
@@ -125,6 +121,7 @@
                     </div>
 				</div>
 			</div>
+		</div>&ndash;&gt;
 		</div>-->
 		<div id="content" class="centered-content clearfix" ng-transclude=""></div>
 		<div class="push"></div>
