@@ -3,6 +3,12 @@ $HEADER_BACKGROUND_COLOR: $COLOR_13;
 $HEADER_HEIGHT: 110px !default;
 $FOOTER_HEIGHT: 170px !default;
 
+// jeff's code for mobile first starts here:
+
+#jheader {
+    background: $HEADER_BACKGROUND_COLOR;
+}
+
 .jumbotron{
     background-color:#2E2D88;
     color:white;
