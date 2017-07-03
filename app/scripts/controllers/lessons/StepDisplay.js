@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('lergoApp').controller('LessonsStepDisplayCtrl',
-    function ($scope, $rootScope, StepService, $log, $routeParams, $timeout, $sce, LergoClient, shuffleFilter, $window) {
+var LessonsStepDisplayCtrl = function ($scope, $rootScope, StepService, $log, $routeParams, $timeout, $sce,
+                                       LergoClient, shuffleFilter, localStorageService, $window) {
     $log.info('showing step');
 
     // used to fix bug where hint stays open when switching between questions.
@@ -17,7 +17,6 @@ angular.module('lergoApp').controller('LessonsStepDisplayCtrl',
     if (!!$routeParams.data) {
         $scope.step = JSON.parse($routeParams.data);
         shuffleFilter($scope.step.quizItems, !$scope.step.shuffleQuestion);
-        $log.info($scope.step);
     }
 
     function currentIndex() {
@@ -108,7 +107,7 @@ angular.module('lergoApp').controller('LessonsStepDisplayCtrl',
                 'userAnswer': quizItem.userAnswer,
                 'checkAnswer': result.data,
                 'quizItemId': quizItem._id,
-                'quizItemType':quizItem.type,
+                'quizItemType': quizItem.type,
                 'duration': duration,
                 'isHintUsed': !!quizItem.isHintUsed
             });
@@ -177,7 +176,7 @@ angular.module('lergoApp').controller('LessonsStepDisplayCtrl',
                     $scope.updateProgressPercent();
                 }
             } else {
-                if (!$scope.step.retryQuestion || result.data.correct) {
+                if (!$scope.step.retryQuestion || result.data.correct || ((isSameType || !$scope.hasNextQuizItem()) && (defaultRetries() > 0 && !$scope.retriesLeft()))) {
                     $scope.updateProgressPercent();
                 }
             }
@@ -187,33 +186,34 @@ angular.module('lergoApp').controller('LessonsStepDisplayCtrl',
         });
     };
 
-    // quiz is done only iff all of the following are correct
-    // 1. all questions were answered
-    // 2. no retry required for last question -- which means last answer was
-    // correct or no retry configured
-    // guy - the last question is a special scenario since all the others will
-    // fall on the first condition.
 
-    // if step is not quiz - then we will return "true" as default.
+    $scope.getQuizItem = function () {
+        return $scope.quizItem && $scope.quizItem._id;
+    };
+
+    /**
+     * @description
+     * quiz is done only iff all of the following are correct
+     * 1. all questions were answered
+     * 2. no retry required for last question -- which means last answer was correct or no retry configured
+     * guy - the last question is a special scenario since all the others will fall on the first condition.
+     * if step is not quiz - then we will return "true" as default.
+     *
+     * @returns {boolean}
+     */
     $scope.isQuizDone = function () {
 
-        if ($scope.step && $scope.step.type !== 'quiz') { // return true if not quiz.
+        if (!StepService.isQuizStep($scope.step)) { // return true if not quiz.
             return true;
         }
-
         var answer = $scope.getAnswer();
         var allQuestionsWereAnswered = !$scope.hasNextQuizItem() && answer;
         if (isTestMode()) {
             return allQuestionsWereAnswered;
         } else {
-            var noRetryOnLast = answer && (answer.correct || !$scope.step.retryQuestion);
-            return allQuestionsWereAnswered && noRetryOnLast; // the full
-            // condition
+            var noRetryOnLast = answer && (answer.correct || !$scope.step.retryQuestion || ( defaultRetries() > 0 && !$scope.retriesLeft()));
+            return allQuestionsWereAnswered && noRetryOnLast; // the full condition
         }
-    };
-
-    $scope.getQuizItem = function () {
-        return $scope.quizItem && $scope.quizItem._id;
     };
 
     $scope.getAnswer = function () {
@@ -228,7 +228,38 @@ angular.module('lergoApp').controller('LessonsStepDisplayCtrl',
      * * do not show explanation if
      *   * user did not answer yet
      *   * user is in test mode
-     *   * question does not have an explanation
+     *   * answer does not have an explanation message
+     *
+     * * show explanation if
+     *   * if chow correct answer is checked
+     *   * or no more retries left
+     *
+     * @returns {boolean}
+     */
+    $scope.shouldShowExplanationMessage = function () {
+        if (isTestMode()) {
+            return false;
+        } else if (!$scope.getAnswer()) {
+            return false;
+        } else if (!$scope.quizItem.explanation) {
+            return false;
+        } else if ($scope.quizItem.explanationMedia && !!$scope.quizItem.explanationMedia.type) {
+            return false;
+        } else if ($scope.quizItem.explanation.length <= 0) {
+            return false;
+        } else {
+            return LergoClient.questions.isOpenQuestion($scope.quizItem) || $scope.canShowCrctAns() || !$scope.retriesLeft();
+        }
+    };
+
+    /**
+     *
+     * @description
+     *
+     * * do not show explanation if
+     *   * user did not answer yet
+     *   * user is in test mode
+     *   * question dows not have an explanation
      *
      * * show explanation if
      *   * question is of type open question
@@ -237,23 +268,43 @@ angular.module('lergoApp').controller('LessonsStepDisplayCtrl',
      * @returns {boolean}
      */
     $scope.shouldShowExplanationMedia = function () {
-        if (
-            isTestMode() || !$scope.quizItem || !$scope.quizItem.explanationMedia || !$scope.quizItem.explanationMedia.type || !$scope.getAnswer()
-        ) {
+        if (isTestMode()) {
             return false;
+        } else if (!$scope.getAnswer()) {
+            return false;
+        } else if (!$scope.quizItem) {
+            return false;
+        } else if (!$scope.quizItem.explanationMedia) {
+            return false;
+        } else if (!$scope.quizItem.explanationMedia.type) {
+            return false;
+        } else {
+            return !$scope.getAnswer().correct || LergoClient.questions.isOpenQuestion($scope.quizItem);
         }
-
-        if (
-            !$scope.getAnswer().correct ||
-            $scope.quizItem.type === 'openQuestion'
-        ) {
-            return true;
+    };
+    /**
+     * @description
+     * do not show result
+     * 1. in Test Mode
+     *
+     * Show results if
+     * 1. answer is submitted
+     *
+     * @returns {boolean}
+     */
+    $scope.shouldShowResult = function () {
+        if (isTestMode()) {
+            return false;
+        } else {
+            return !!$scope.getAnswer();
         }
     };
 
     $scope.nextQuizItem = function () {
         $log.info('next');
-
+        if (!!$scope.quizItem) {
+            localStorageService.remove($scope.quizItem._id + '-retries');
+        }
         $scope.stepDisplay.showHint = false;
 
         if (!$scope.questions) {
@@ -273,10 +324,16 @@ angular.module('lergoApp').controller('LessonsStepDisplayCtrl',
                     $log.error('failed handling scenario where last question was answered', e);
                 }
             }
+            localStorageService.set($scope.quizItem._id + '-retries', defaultRetries());
         }
     };
 
-    // simply gets the next quiz item. does not change the state of the page
+    /**
+     * @description
+     *
+     * simply gets the next quiz item. does not change the state of the page
+     * @returns {*}
+     */
     $scope.getNextQuizItemDry = function () {
         if (!$scope.hasNextQuizItem()) {
             return {
@@ -297,6 +354,7 @@ angular.module('lergoApp').controller('LessonsStepDisplayCtrl',
     };
 
     /**
+     * @description
      *
      * should we display "next question" button??
      *
@@ -308,13 +366,17 @@ angular.module('lergoApp').controller('LessonsStepDisplayCtrl',
      * @returns {boolean|step.retryQuestion|*}
      */
     $scope.showNextQuestion = function () {
-        if (isTestMode()) {
+        if (isTestMode() || !$scope.getAnswer()) {
             return false;
         }
-        if ($scope.quizItem.type === LergoClient.questions.QUESTION_TYPE.OPEN_QUESTION && LergoClient.questions.hasExplanation($scope.quizItem) && !!$scope.getAnswer() && $scope.hasNextQuizItem()) {
+        var isOpenQuestion = LergoClient.questions.isOpenQuestion($scope.quizItem);
+        var hasExplanation = LergoClient.questions.hasExplanation($scope.quizItem);
+        var hasNextQuizItem = $scope.hasNextQuizItem();
+        if (isOpenQuestion && hasExplanation && hasNextQuizItem) {
             return true;
         }
-        return ($scope.step.retryQuestion || $scope.hasNextQuizItem()) && $scope.getAnswer() && !$scope.getAnswer().correct;
+        var repeatQuestion = $scope.step.retryQuestion && (defaultRetries() === 0 || $scope.retriesLeft());
+        return (repeatQuestion || hasNextQuizItem) && !$scope.getAnswer().correct;
     };
 
     $scope.hasNextQuizItem = function () {
@@ -397,8 +459,14 @@ angular.module('lergoApp').controller('LessonsStepDisplayCtrl',
         }
     };
 
-    // autofocus not working properly in control of partial view when added
-    // through ngInclude this is a hook to get the desired behaviour
+
+    /**
+     * @description
+     *
+     * autofocus not working properly in control of partial view when added
+     * through ngInclude this is a hook to get the desired behaviour
+     * @param id Id of an element
+     */
     $scope.setFocus = function (id) {
         document.getElementById(id).focus();
     };
@@ -459,20 +527,41 @@ angular.module('lergoApp').controller('LessonsStepDisplayCtrl',
         return correctAnswers.length > 1;
     };
 
-    // reach here when you click next after got question wrong
-    // if step defined with "allow retry" - we will try again, otherwise we move
-    // to next item.
+    function shouldRetry(step) {
+        if ($scope.canShowCrctAns()) {
+            return step.retryQuestion;
+        }
+        else {
+            return step.retryQuestion && localStorageService.get($scope.quizItem._id + '-retries') > 0;
+        }
+    }
+
+    /**
+     * reach here when you click next after got question wrong
+     * if step defined with "allow retry" - we will try again, otherwise we move
+     * to next item.
+     */
     $scope.retryOrNext = function () {
-        if ($scope.step.retryQuestion && $scope.quizItem.type !== LergoClient.questions.QUESTION_TYPE.OPEN_QUESTION) {
+        if (shouldRetry($scope.step) && !LergoClient.questions.isOpenQuestion($scope.quizItem)) {
             $scope.tryAgain();
         } else {
             $scope.nextQuizItem();
         }
     };
 
+    $scope.retriesLeft = function () {
+        if (!$scope.quizItem) {
+            return false;
+        }
+        return localStorageService.get($scope.quizItem._id + '-retries') > 0;
+    };
+
     $scope.tryAgain = function () {
         $log.info('trying again');
         var quizItem = $scope.quizItem;
+        var retriesLeft = localStorageService.get(quizItem._id + '-retries');
+        localStorageService.set(quizItem._id + '-retries', retriesLeft - 1);
+
         if (!!quizItem.options) {
             quizItem.options.isShuffled = false;
             _.each(quizItem.options, function (option) {
@@ -485,5 +574,27 @@ angular.module('lergoApp').controller('LessonsStepDisplayCtrl',
         quizItem.userAnswer = null;
         quizItem.submitted = false;
     };
+    /**
+     * @description
+     *
+     * Whether a quiz step
+     * @returns {boolean}
+     */
+    $scope.isQuizStep = function () {
+        return StepService.isQuizStep($scope.step);
+    };
 
-});
+    $scope.canShowCrctAns = function () {
+        return !$scope.step.retryQuestion || !defaultRetries();
+    };
+
+    function defaultRetries() {
+        if (!$scope.step.retBefCrctAns) {
+            return 0;
+        } else {
+            return $scope.step.retBefCrctAns - 1;
+        }
+    }
+};
+angular.module('lergoApp').controller('LessonsStepDisplayCtrl', ['$scope', '$rootScope', 'StepService', '$log', '$routeParams', '$timeout', '$sce',
+    'LergoClient', 'shuffleFilter', 'localStorageService', '$window',LessonsStepDisplayCtrl]);

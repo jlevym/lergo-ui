@@ -42,8 +42,15 @@ angular.module('lergoApp').service('QuestionsService', function QuestionsService
         return $http.post('/backend/questions/create', question);
     };
 
-    this.hasExplanation = function(question){
+    this.hasExplanation = function (question) {
         return question.explanation || question.explanationMedia;
+    };
+
+    this.isOpenQuestion = function (question) {
+        if (!question) {
+            return false;
+        }
+        return question.type === this.QUESTION_TYPE.OPEN_QUESTION;
     };
 
     this.updateQuestion = function (question) {
