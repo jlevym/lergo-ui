@@ -3,6 +3,39 @@ $HEADER_BACKGROUND_COLOR: $COLOR_13;
 $HEADER_HEIGHT: 110px !default;
 $FOOTER_HEIGHT: 170px !default;
 
+.jumbotron{
+    background-color:#2E2D88;
+    color:white;
+}
+/* Adds borders for tabs */
+.tab-content {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+.nav-tabs {
+    margin-bottom: 0;
+}
+
+/*from stackoverflow*/
+.row.fix {
+    display: flex;
+    flex-wrap: wrap;
+}
+/*from angular-ui*/
+.horizontal-collapse {
+    height: 70px;
+}
+.navbar-collapse.in {
+    overflow-y: hidden;
+}
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+
+
+
 #wrapper {
     margin-bottom: -$HEADER_HEIGHT;
     min-height: 100%;

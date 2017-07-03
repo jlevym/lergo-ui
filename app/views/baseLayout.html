@@ -1,6 +1,54 @@
 <div>
-	<div id="wrapper" class="clearfix">
-		<div id="header" class="not-embed-mode-item" ng-controller="LoginCtrl">
+    <div>
+
+        <div ng-controller="LoginCtrl">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" ng-click="isNavCollapsed = !isNavCollapsed">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="#"><img src="images/logos/transparent-beta.png" style="padding-right: 5em"></a>
+                </div>
+                <div class="collapse navbar-collapse" uib-collapse="isNavCollapsed">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">CREATE</a></li>
+                        <li><a href="#">PARENTS</a></li>
+                        <li><a href="#">TEACHERS</a></li>
+                        <li><a href="#">CONTRIBUTE</a></li>
+                        <!-- <li class="dropdown" dropdown> -->
+                    </ul>
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                    <ul class="nav navbar-nav navbar-left">
+                        <li class="btn-group" uib-dropdown is-open="status.isopen">
+                            <a href="#" class="class="btn btn-basic" uib-dropdown-toggle ng-disabled="disabled">Language <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">English</a>
+                                </li>
+                                <li><a href="#">Hebrew</a>
+                                </li>
+                                <li><a href="#">Arabic</a>
+                                <li><a href="#">Russian</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Sign-up</a>
+                        </li>
+                        <li><a href="#">Log-in</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+	<!--<div id="wrapper" class="clearfix">-->
+		<!--<div id="header" class="not-embed-mode-item" ng-controller="LoginCtrl">
 			<div class="centered-content">
 				<div class="header-main">
 					<div class="header-logo">
@@ -16,7 +64,7 @@
 							</li>
 							<li>
 								<a show-logged-in href="#!/user/create/lessons">{{ 'baseLayout.header.links.create'| translate }} </a>
-								<!--  tabindex = 0 is use to fix focus trigger problem in google chrome -->
+								&lt;!&ndash;  tabindex = 0 is use to fix focus trigger problem in google chrome &ndash;&gt;
 								<a show-anonymous popover-placement="bottom" popover-trigger="focus" popover="{{'createNotAvailable' | translate}}" tabindex="0">{{
 									'baseLayout.header.links.create'| translate }} </a>
 							</li>
@@ -29,8 +77,8 @@
 						</ul>
 					</div>
 					    <div class="header-search" ui-keypress="{enter: 'searchOnHomepage()'}">
-						<!--<div text-filter placeholder="{{'baseLayout.header.searchPlaceholder' | translate  }}" items="typeaheadItems" model="filterTextSearch"
-							on-select="doSearchFromTypeahead($item,$model,$label)"></div>-->
+						&lt;!&ndash;<div text-filter placeholder="{{'baseLayout.header.searchPlaceholder' | translate  }}" items="typeaheadItems" model="filterTextSearch"
+							on-select="doSearchFromTypeahead($item,$model,$label)"></div>&ndash;&gt;
 						<input ng-class="{'search-color' : baseLayout.filterTextSearch.length > 0 }" placeholder="{{'baseLayout.header.searchPlaceholder' | translate  }}" ng-model="baseLayout.filterTextSearch" />
 						<button ng-click="searchOnHomepage()" class="btn btn-link">
 							<i class="icon-search"  tooltip="{{'homepage.tooltip.searchWord' | translate}}" tooltip-placement="right"></i>
@@ -39,9 +87,9 @@
                                 <span class="cancel-search"  tooltip="{{'homepage.tooltip.searchReset' | translate}}" tooltip-placement="right">X</span>
                             </a>
 					</div>
-                    </div><!---->
+                    </div>&lt;!&ndash;&ndash;&gt;
                     <div class="header-actions">
-                        <div profile-login-button="$root.user"></div> <!-- NOTE: referencing $root.user to fix bug where username displayed is the username we manage. -->
+                        <div profile-login-button="$root.user"></div> &lt;!&ndash; NOTE: referencing $root.user to fix bug where username displayed is the username we manage. &ndash;&gt;
 
                         <div class="header-language">
                             <i class="fa fa-globe fa-fw"></i>
@@ -51,7 +99,7 @@
                     </div>
 				</div>
 			</div>
-		</div>
+		</div>-->
 		<div id="content" class="centered-content clearfix" ng-transclude=""></div>
 		<div class="push"></div>
 	</div>
