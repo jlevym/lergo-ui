@@ -5,6 +5,10 @@ $FOOTER_HEIGHT: 170px !default;
 
 // jeff's code for mobile first starts here:
 
+#profileloginbuttonj {
+    padding-top: 0.9em;
+}
+
 #jheader {
     background: $HEADER_BACKGROUND_COLOR;
 }
@@ -283,8 +287,9 @@ $FOOTER_HEIGHT: 170px !default;
                 text-align: center;
                 .user-section-menu {
 
-                    position: absolute;
-                    margin-left:30px;
+                    //position: absolute;
+                    //margin-left:30px;
+                    margin-right:100px;
 //                    margin-top: -10px;
                 }
                 & > a {
