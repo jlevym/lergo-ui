@@ -41,6 +41,12 @@
 					<div class="lergo-h1">{{ 'lessons.filter' | translate }}</div>
 				</div>
 			</div>
+
+
+            <div>
+                <div lergo-filter model="lessonsFilter" on-change="loadLessons()" opts="lessonsFilterOpts" on-load="filterLoaded()"></div>
+            </div>
+
 			<div class="page-content-width">
 				<div class="page-content-body">
                     <div filter-is-active="lessonsFilterOpts" section="lessons"></div>
@@ -105,9 +111,6 @@
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="sidebar page-content-sidebar">
-					<div lergo-filter model="lessonsFilter" on-change="loadLessons()" opts="lessonsFilterOpts" on-load="filterLoaded()"></div>
 				</div>
 			</div>
 			<div lergo-paging page="filterPage" on-change="loadLessons()" on-load="pagingLoaded()"></div>

@@ -1,4 +1,116 @@
-<form name="filter" class="filters lergo-form">
+<!-- starting filters -->
+<div>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle pull-left" ng-click="isNavCollapsed = !isNavCollapsed">
+                <p style="font-size: 0.9em" class="well well-sm">LANGUAGE | SUBJECT | AGE | VIEWS | BY | TAGS</p>
+
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" uib-collapse="isNavCollapsed">
+
+
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                    <div class="well well-sm" style="margin-top: 1em">
+                        <form>
+                            <div class="form-group">
+                                <label for="sel1">LANGUAGE</label>
+                                <select class="form-control" id="sel1">
+                                    <option><a href="#">English</a></option>
+                                    <option><a href="#">Hebrew</a></option>
+                                    <option><a href="#">Arabic</a></option>
+                                    <option><a href="#">Russian</a></option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                    <div class="well well-sm" style="margin-top: 1em">
+
+                        <form>
+                            <div class="form-group">
+                                <label for="sel1">SUBJECT</label>
+                                <select class="form-control" id="sel1">
+                                    <option><a href="#">All</a></option>
+                                    <option><a href="#">English</a></option>
+                                    <option><a href="#">Maths</a></option>
+                                    <option><a href="#">Geometry</a></option>
+                                    <option><a href="#">Science</a></option>
+                                    <option><a href="#">Language</a></option>
+                                    <option><a href="#">Holiday</a></option>
+                                    <option><a href="#">Grammar</a></option>
+                                    <option><a href="#">Spelling</a></option>
+                                    <option><a href="#">Hebrew</a></option>
+                                    <option><a href="#">Arabic</a></option>
+                                    <option><a href="#">Russian</a></option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                    <div class="well well-sm" style="margin-top: 1em">
+
+                        <p style="font-weight: 700">AGE </p>
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control">
+                            <span class="input-group-addon">To</span>
+                            <input type="text" class="form-control">
+                            <span class="input-group"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                    <div class="well well-sm" style="margin-top: 1em">
+                        <p style="font-weight: 700">VIEWS</p>
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control">
+                            <span class="input-group-addon">To</span>
+                            <input type="text" class="form-control">
+                            <span class="input-group"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                    <div class="well well-sm" style="margin-top: 1em">
+                        <p style="font-weight: 700">BY </p>
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control">
+                            <span class="input-group"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                    <div class="well well-sm" style="margin-top: 1em">
+                        <p style="font-weight: 700">TAGS</p>
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control">
+                            <span class="input-group"></span>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                        <p style="padding-top: 2em">
+                            <a href="#" class="btn btn-success btn-md">RESET FILTER<span class="glyphicon glyphicon-warning-sign"></span></a>
+                        </p>
+                    </div>
+
+                </div>
+    </nav>
+</div>
+
+
+
+<!--<form name="filter" class="filters lergo-form">
     <div ng-show="!!opts.showStudents" class='container-fluid'>
         <div class="label">{{'filters.labels.doneByStudent' | translate}}</div>
         <div class="input">
@@ -37,8 +149,10 @@
 
 			<select ng-options="l as ('filters.languages.' + l | translate) for l in limitedLanguages track by l"
                     ng-model="filterLanguage">
-			</select>
-		</div>
+			</select
+
+
+<!--<form name="filter" cl	</div>
 	</span>
 
 
@@ -154,14 +268,14 @@
         <div class="label">{{'filters.label.reportLesson' | translate }}</div>
         <div report-lesson-filter="reportLesson" report-type="reportType"></div>
     </div>
-    <!--<div ng-show="!!durationFilter">-->
-    <!--<div class="label">{{'filters.labels.duration' | translate }}</div>-->
-    <!--<div>-->
-    <!--<input min="1" max="100" size="1" class="number" type="number" ng-model="$root.filter.duration.min" />-->
-    <!--{{'filters.to'|translate}}-->
-    <!--<input min="1" max="100" size="1" ng class="number" type="number" ng-model="$root.filter.duration.max" />-->
-    <!--</div>-->
-    <!--</div>-->
+    &lt;!&ndash;<div ng-show="!!durationFilter">&ndash;&gt;
+    &lt;!&ndash;<div class="label">{{'filters.labels.duration' | translate }}</div>&ndash;&gt;
+    &lt;!&ndash;<div>&ndash;&gt;
+    &lt;!&ndash;<input min="1" max="100" size="1" class="number" type="number" ng-model="$root.filter.duration.min" />&ndash;&gt;
+    &lt;!&ndash;{{'filters.to'|translate}}&ndash;&gt;
+    &lt;!&ndash;<input min="1" max="100" size="1" ng class="number" type="number" ng-model="$root.filter.duration.max" />&ndash;&gt;
+    &lt;!&ndash;</div>&ndash;&gt;
+    &lt;!&ndash;</div>&ndash;&gt;
     <span ng-show="!!opts.showTags">
 		<div>
 			<div class="label">{{'filters.labels.tags' | translate }}</div>
@@ -200,8 +314,8 @@
             </select>
         </div>
     </div>
-</form>
+</form>-->
 
-<div class="clear-filter-section" filter-is-active-show-hide relevancy-opts="opts">
+<!--<div class="clear-filter-section" filter-is-active-show-hide relevancy-opts="opts">
     <button class="btn btn-success wide" lergo-reset-filter> {{ 'filters.actions.clear' | translate }}</button>
-</div>
+</div>-->

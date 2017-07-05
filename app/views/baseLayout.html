@@ -30,9 +30,6 @@
                     <form class="navbar-form navbar-left" role="search">
                     <div class="form-group" ui-keypress="{enter: 'searchOnHomepage()'}">
                         <input class="form-control" ng-class="{'search-color' : baseLayout.filterTextSearch.length > 0 }" placeholder="{{'baseLayout.header.searchPlaceholder' | translate  }}" ng-model="baseLayout.filterTextSearch" />
-                        <!--<button type = "submit" ng-click="searchOnHomepage()" class="btn btn-default">
-                            <i class="icon-search"  tooltip="{{'homepage.tooltip.searchWord' | translate}}" tooltip-placement="right"></i>
-                        </button>-->
                         <button type="submit" ng-click="searchOnHomepage()" class="btn btn-default">Submit</button>
                         <a style="text-decoration: none;" href="#!/user/homepage" class="btn btn-link">
                             <span class="cancel-search"  tooltip="{{'homepage.tooltip.searchReset' | translate}}" tooltip-placement="right">X</span>
