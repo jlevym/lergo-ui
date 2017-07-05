@@ -4,77 +4,112 @@
         <div class="navbar-header">
             <button type="button" class="navbar-toggle pull-left" ng-click="isNavCollapsed = !isNavCollapsed">
                 <p style="font-size: 0.9em" class="well well-sm">LANGUAGE | SUBJECT | AGE | VIEWS | BY | TAGS</p>
-
             </button>
         </div>
         <div class="collapse navbar-collapse" uib-collapse="isNavCollapsed">
 
 
-            <div class="row">
+            <div class="row" ng-show="!!opts.showLanguage">
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                     <div class="well well-sm" style="margin-top: 1em">
                         <form>
                             <div class="form-group">
-                                <label for="sel1">LANGUAGE</label>
-                                <select class="form-control" id="sel1">
-                                    <option><a href="#">English</a></option>
-                                    <option><a href="#">Hebrew</a></option>
-                                    <option><a href="#">Arabic</a></option>
-                                    <option><a href="#">Russian</a></option>
+                                <label for="sel1"><div>{{'filters.labels.language' | translate }}</div></label>
+                                <select class="form-control" id="sel1" ng-options="l as ('filters.languages.' + l | translate) for l in languages track by l"
+                                        ng-model="filterLanguage">
                                 </select>
                             </div>
                         </form>
                     </div>
                 </div>
 
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                    <div class="well well-sm" style="margin-top: 1em">
+                <!--<span ng-show="!!opts.showLanguage">
+                        <div class="label">{{'filters.labels.language' | translate }}</div>
+                        <div class="input">
 
+                            <select ng-options="l as ('filters.languages.' + l | translate) for l in languages track by l"
+                                    ng-model="filterLanguage">
+                            </select>
+                        </div>
+                    </span>-->
+
+
+
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6" ng-show="!!opts.showSubject" >
+                    <div class="well well-sm" style="margin-top: 1em">
                         <form>
                             <div class="form-group">
-                                <label for="sel1">SUBJECT</label>
-                                <select class="form-control" id="sel1">
-                                    <option><a href="#">All</a></option>
-                                    <option><a href="#">English</a></option>
-                                    <option><a href="#">Maths</a></option>
-                                    <option><a href="#">Geometry</a></option>
-                                    <option><a href="#">Science</a></option>
-                                    <option><a href="#">Language</a></option>
-                                    <option><a href="#">Holiday</a></option>
-                                    <option><a href="#">Grammar</a></option>
-                                    <option><a href="#">Spelling</a></option>
-                                    <option><a href="#">Hebrew</a></option>
-                                    <option><a href="#">Arabic</a></option>
-                                    <option><a href="#">Russian</a></option>
+                                <label for="sel1"><div>{{'filters.labels.subject' | translate }}</div></label>
+                                <select class="form-control" id="sel1" ng-options="s as ('filters.subjects.' + s | translate) for s in subjects track by s"
+                                        ng-model="model.subject">
+                                    <option value="">{{'filters.all'|translate}}</option>
                                 </select>
                             </div>
                         </form>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                    <div class="well well-sm" style="margin-top: 1em">
 
-                        <p style="font-weight: 700">AGE </p>
+     <!--<span ng-show="!!opts.showSubject">
+		<div class="label">{{'filters.labels.subject' | translate }}</div>
+		<div class="input">
+			<select ng-options="s as ('filters.subjects.' + s | translate) for s in subjects track by s"
+                    ng-model="model.subject">
+				<option value="">{{'filters.all'|translate}}</option>
+			</select>
+		</div>
+	</span>-->
+
+
+
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6" ng-show="!!opts.showAge">
+                    <div class="well well-sm" style="margin-top: 1em">
+                        <div>{{'filters.labels.ageRange' | translate }}</div>
                         <div class="input-group input-group-sm">
-                            <input type="text" class="form-control">
-                            <span class="input-group-addon">To</span>
-                            <input type="text" class="form-control">
+                           <!-- <div>
+                                <input min="1" max="100" size="1" class="number" type="number" ng-model="ageFilter.min"/>
+                                {{'filters.to'|translate}}
+                                <input min="1" max="100" size="1" class="number" type="number" ng-model="ageFilter.max"/>
+                            </div>-->
+                            <input  class="form-control" min="1" max="100" size="1"  type="number" ng-model="ageFilter.min">
+                            <span class="input-group-addon">{{'filters.to'|translate}}</span>
+                            <input  class="form-control" min="1" max="100" size="1"  type="number" ng-model="ageFilter.max">
                             <span class="input-group"></span>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+
+       <!--         <span ng-show="!!opts.showAge">
+		<div class="label">{{'filters.labels.ageRange' | translate }}</div>
+		<div>
+			<input min="1" max="100" size="1" class="number" type="number" ng-model="ageFilter.min"/>
+			{{'filters.to'|translate}}
+			<input min="1" max="100" size="1" class="number" type="number" ng-model="ageFilter.max"/>
+		</div>
+	</span>-->
+
+
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6" ng-show="!!opts.showViews">
                     <div class="well well-sm" style="margin-top: 1em">
-                        <p style="font-weight: 700">VIEWS</p>
+                        <div>{{'filters.labels.views' | translate }}</div>
                         <div class="input-group input-group-sm">
-                            <input type="text" class="form-control">
+                            <input type="number" class="form-control">
                             <span class="input-group-addon">To</span>
-                            <input type="text" class="form-control">
+                            <input type="number" class="form-control">
                             <span class="input-group"></span>
                         </div>
                     </div>
                 </div>
+
+
+      <!--  <span ng-show="!!opts.showViews">
+		<div class="label">{{'filters.labels.views' | translate }}</div>
+		<div>
+			<input min="1" size="1" class="number" type="number" ng-model="viewsFilter.min"/>
+			{{'filters.to'|translate}}
+			<input min="1" size="1" class="number" type="number" ng-model="viewsFilter.max"/>
+		</div>
+	</span>-->
 
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                     <div class="well well-sm" style="margin-top: 1em">
