@@ -7,40 +7,26 @@
             </button>
         </div>
         <div class="collapse navbar-collapse" uib-collapse="isNavCollapsed">
+            <div class="row">
 
-
-            <div class="row" ng-show="!!opts.showLanguage">
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                    <div class="well well-sm" style="margin-top: 1em">
-                        <form>
-                            <div class="form-group">
-                                <label for="sel3"><div>{{'filters.labels.language' | translate }}</div></label>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6"  ng-show="!!opts.showLanguage">
+                <div class="well well-sm" style="margin-top: 1em">
+                    <form>
+                       <div class="form-group">
+                            <label for="sel3">{{'filters.labels.language' | translate }}</label>
                                 <select class="form-control" id="sel3" ng-options="l as ('filters.languages.' + l | translate) for l in languages track by l"
                                         ng-model="filterLanguage">
-                                </select>
-                            </div>
-                        </form>
-                    </div>
+                            </select>
+                       </div>
+                    </form>
                 </div>
             </div>
-
-                <!--<span ng-show="!!opts.showLanguage">
-                        <div class="label">{{'filters.labels.language' | translate }}</div>
-                        <div class="input">
-
-                            <select ng-options="l as ('filters.languages.' + l | translate) for l in languages track by l"
-                                    ng-model="filterLanguage">
-                            </select>
-                        </div>
-                    </span>-->
-
-
 
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6" ng-show="!!opts.showSubject" >
                     <div class="well well-sm" style="margin-top: 1em">
                         <form>
                             <div class="form-group">
-                                <label for="sel1"><div>{{'filters.labels.subject' | translate }}</div></label>
+                                <label for="sel1">{{'filters.labels.subject' | translate }}</label>
                                 <select class="form-control" id="sel1" ng-options="s as ('filters.subjects.' + s | translate) for s in subjects track by s"
                                         ng-model="model.subject">
                                     <option value="">{{'filters.all'|translate}}</option>
@@ -49,18 +35,6 @@
                         </form>
                     </div>
                 </div>
-
-     <!--<span ng-show="!!opts.showSubject">
-		<div class="label">{{'filters.labels.subject' | translate }}</div>
-		<div class="input">
-			<select ng-options="s as ('filters.subjects.' + s | translate) for s in subjects track by s"
-                    ng-model="model.subject">
-				<option value="">{{'filters.all'|translate}}</option>
-			</select>
-		</div>
-	</span>-->
-
-
 
                  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6" ng-show="!!opts.showAge">
                     <div class="well well-sm" style="margin-top: 1em">
@@ -74,17 +48,6 @@
                     </div>
                 </div>
 
-
-       <!--         <span ng-show="!!opts.showAge">
-		<div class="label">{{'filters.labels.ageRange' | translate }}</div>
-		<div>
-			<input min="1" max="100" size="1" class="number" type="number" ng-model="ageFilter.min"/>
-			{{'filters.to'|translate}}
-			<input min="1" max="100" size="1" class="number" type="number" ng-model="ageFilter.max"/>
-		</div>
-	</span>-->
-
-
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6" ng-show="!!opts.showViews">
                     <div class="well well-sm" style="margin-top: 1em">
                         <div>{{'filters.labels.views' | translate }}</div>
@@ -96,18 +59,6 @@
                         </div>
                     </div>
                 </div>
-
-
-                <!--<span ng-show="!!opts.showViews">
-                    <div class="label">{{'filters.labels.views' | translate }}</div>
-                    <div>
-                        <input min="1" size="1" class="number" type="number" ng-model="viewsFilter.min"/>
-                        {{'filters.to'|translate}}
-                        <input min="1" size="1" class="number" type="number" ng-model="viewsFilter.max"/>
-                    </div>
-                </span>-->
-
-
 
 
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
@@ -129,14 +80,13 @@
                         </div>
                     </div>
 
-
+                </div>
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                         <p style="padding-top: 2em">
                             <a href="#" class="btn btn-success btn-md">RESET FILTER<span class="glyphicon glyphicon-warning-sign"></span></a>
                         </p>
                     </div>
-
-                </div>
+        </div>
         </div>
     </nav>
 </div>
