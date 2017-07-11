@@ -88,23 +88,26 @@
                     <div class="well well-sm" style="margin-top: 1em">
                         <div>{{'filters.labels.views' | translate }}</div>
                         <div class="input-group input-group-sm">
-                            <input type="number" class="form-control">
+                            <input type="number" class="form-control" ng-model="viewsFilter.min">
                             <span class="input-group-addon">To</span>
-                            <input type="number" class="form-control">
+                            <input type="number" class="form-control" ng-model="viewsFilter.max">
                             <span class="input-group"></span>
                         </div>
                     </div>
                 </div>
 
 
-      <!--  <span ng-show="!!opts.showViews">
-		<div class="label">{{'filters.labels.views' | translate }}</div>
-		<div>
-			<input min="1" size="1" class="number" type="number" ng-model="viewsFilter.min"/>
-			{{'filters.to'|translate}}
-			<input min="1" size="1" class="number" type="number" ng-model="viewsFilter.max"/>
-		</div>
-	</span>-->
+                <!--<span ng-show="!!opts.showViews">
+                    <div class="label">{{'filters.labels.views' | translate }}</div>
+                    <div>
+                        <input min="1" size="1" class="number" type="number" ng-model="viewsFilter.min"/>
+                        {{'filters.to'|translate}}
+                        <input min="1" size="1" class="number" type="number" ng-model="viewsFilter.max"/>
+                    </div>
+                </span>-->
+
+
+
 
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                     <div class="well well-sm" style="margin-top: 1em">
@@ -125,7 +128,21 @@
                         </div>
                     </div>
 
-
+        <span ng-show="!!opts.showTags">
+		<div>
+			<div class="label">{{'filters.labels.tags' | translate }}</div>
+			<div>
+				<div tag-section tags="filterTags"></div>
+			</div>
+		</div>
+	    </span>
+            <div ng-show="!!opts.showCreatedBy" class='container-fluid'>
+                        <div class="label">{{'filters.labels.createdBy' | translate}}</div>
+                        <div class="input">
+                            <input type="text" ng-model="createdBy"
+                                   typeahead="user as user.username for user in users | filter:$viewValue | limitTo:15 ">
+                        </div>
+                </div>
 
 
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
