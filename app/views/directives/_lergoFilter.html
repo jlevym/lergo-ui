@@ -61,18 +61,13 @@
 
 
 
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6" ng-show="!!opts.showAge">
+                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6" ng-show="!!opts.showAge">
                     <div class="well well-sm" style="margin-top: 1em">
                         <div>{{'filters.labels.ageRange' | translate }}</div>
                         <div class="input-group input-group-sm">
-                           <!-- <div>
-                                <input min="1" max="100" size="1" class="number" type="number" ng-model="ageFilter.min"/>
-                                {{'filters.to'|translate}}
-                                <input min="1" max="100" size="1" class="number" type="number" ng-model="ageFilter.max"/>
-                            </div>-->
-                            <input  class="form-control" min="1" max="100" size="1"  type="number" ng-model="ageFilter.min">
+                            <input  class="form-control" min="4" max="17" type="number" ng-model="ageFilter.min">
                             <span class="input-group-addon">{{'filters.to'|translate}}</span>
-                            <input  class="form-control" min="1" max="100" size="1"  type="number" ng-model="ageFilter.max">
+                            <input  class="form-control" min="5" max="18" type="number" ng-model="ageFilter.max">
                             <span class="input-group"></span>
                         </div>
                     </div>
