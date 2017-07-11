@@ -14,14 +14,15 @@
                     <div class="well well-sm" style="margin-top: 1em">
                         <form>
                             <div class="form-group">
-                                <label for="sel1"><div>{{'filters.labels.language' | translate }}</div></label>
-                                <select class="form-control" id="sel1" ng-options="l as ('filters.languages.' + l | translate) for l in languages track by l"
+                                <label for="sel3"><div>{{'filters.labels.language' | translate }}</div></label>
+                                <select class="form-control" id="sel3" ng-options="l as ('filters.languages.' + l | translate) for l in languages track by l"
                                         ng-model="filterLanguage">
                                 </select>
                             </div>
                         </form>
                     </div>
                 </div>
+            </div>
 
                 <!--<span ng-show="!!opts.showLanguage">
                         <div class="label">{{'filters.labels.language' | translate }}</div>
@@ -128,22 +129,6 @@
                         </div>
                     </div>
 
-        <span ng-show="!!opts.showTags">
-		<div>
-			<div class="label">{{'filters.labels.tags' | translate }}</div>
-			<div>
-				<div tag-section tags="filterTags"></div>
-			</div>
-		</div>
-	    </span>
-            <div ng-show="!!opts.showCreatedBy" class='container-fluid'>
-                        <div class="label">{{'filters.labels.createdBy' | translate}}</div>
-                        <div class="input">
-                            <input type="text" ng-model="createdBy"
-                                   typeahead="user as user.username for user in users | filter:$viewValue | limitTo:15 ">
-                        </div>
-                </div>
-
 
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                         <p style="padding-top: 2em">
@@ -152,6 +137,7 @@
                     </div>
 
                 </div>
+        </div>
     </nav>
 </div>
 
