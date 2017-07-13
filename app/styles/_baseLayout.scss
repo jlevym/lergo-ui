@@ -5,6 +5,12 @@ $FOOTER_HEIGHT: 170px !default;
 
 // jeff's code for mobile first starts here:
 
+.row.fix {
+    display: flex;
+    flex-wrap: wrap;
+    width:100%; /*not always necessary*/
+}
+
 #profileloginbuttonj {
     padding-top: 0.9em;
 }

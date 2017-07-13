@@ -47,11 +47,21 @@
                 <div lergo-filter model="lessonsFilter" on-change="loadLessons()" opts="lessonsFilterOpts" on-load="filterLoaded()"></div>
             </div>
 
-			<div class="page-content-width">
-				<div class="page-content-body">
+			<!--<div class="page-content-width">
+				<div class="page-content-body">-->
+            <div class="container">
+                <div class="row fix">
+                    <!--<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <div class="well well-sm">
+                            <div class="thumbnail">-->
+
+
                     <div  section="lessons"></div> <!-- remove filter-is-active="lessonsFilterOpts"-->
+
 					<div class="lessons">
-						<div class="lesson" ng-repeat="lesson in lessons ">
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" ng-repeat="lesson in lessons ">
+                            <div class="well well-sm">
+                                <div class="thumbnail">
 							<div class="age-limit age-limit-{{lesson.age}}">
 								<div class="value">{{lesson.age}}+</div>
 								<div class="units">
@@ -109,8 +119,10 @@
 									</tr>
 								</table>
 							</div>
+                         </div>
 						</div>
 					</div>
+                    </div>
 				</div>
 			</div>
 			<div lergo-paging page="filterPage" on-change="loadLessons()" on-load="pagingLoaded()"></div>
