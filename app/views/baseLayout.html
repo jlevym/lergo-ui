@@ -1,8 +1,7 @@
 <div>
     <div>
-
         <div ng-controller="LoginCtrl">
-            <nav id="jheader"  class="navbar navbar-default" role="navigation">
+            <nav id="jheader"  class="navbar navbar-default not-embed-mode-item" role="navigation">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" ng-click="isNavCollapsed = !isNavCollapsed">
                         <span class="sr-only">Toggle navigation</span>
@@ -24,7 +23,6 @@
                         <li>
                             <a href="#!/public/contribute">{{ 'baseLayout.header.links.contribute'| translate }} </a>
                         </li>
-                        <!-- <li class="dropdown" dropdown> -->
                     </ul>
                     <form class="navbar-form navbar-left" role="search">
                     <div class="form-group" ui-keypress="{enter: 'searchOnHomepage()'}">
@@ -98,7 +96,7 @@
 
                     </div>&lt;!&ndash;&ndash;&gt;
                     <div class="header-actions">
-                        <div profile-login-button="$root.user"></div> &lt;!&ndash; NOTE: referencing $root.user to fix bug where username displayed is the username we manage. &ndash;&gt;
+                        <div profile-login-button="$root.user"></div>
 
                         <div class="header-language">
                             <i class="fa fa-globe fa-fw"></i>
@@ -108,7 +106,7 @@
                     </div>
 				</div>
 			</div>
-		</div>&ndash;&gt;
+		</div>
 		</div>-->
 		<div id="content" class="centered-content clearfix" ng-transclude=""></div>
 		<div class="push"></div>
