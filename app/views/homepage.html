@@ -1,13 +1,11 @@
 <div  class="base-layout" load-filter-and-paging="loadLessons()">
     <div> <!-- for css padding lergo-604 -->
         <div ng-show="!loaded">
-        <div class="loading">
-            <i class="fa fa-cog fa-spin"></i>
+            <div class="loading">
+                <i class="fa fa-cog fa-spin"></i>
+            </div>
         </div>
-    </div>
-	    <div ng-show="!!loaded">
-
-
+	    <!--<div ng-show="!!loaded">--><!----- what is this div and where is it connected to?-->
 		<div class="homepage">
 			<div statistics-banner class="page-content-width">
 				<!-- how many lessons, and how many questions -->
@@ -41,92 +39,75 @@
 					<div class="lergo-h1">{{ 'lessons.filter' | translate }}</div>
 				</div>
 			</div>
-
-
             <div>
                 <div lergo-filter model="lessonsFilter" on-change="loadLessons()" opts="lessonsFilterOpts" on-load="filterLoaded()"></div>
             </div>
-
-			<!--<div class="page-content-width">
-				<div class="page-content-body">-->
             <div class="container">
                 <div class="row fix">
-                    <!--<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                        <div class="well well-sm">
-                            <div class="thumbnail">-->
-
-
-                    <div  section="lessons"></div> <!-- remove filter-is-active="lessonsFilterOpts"-->
-
-					<div class="lessons">
-						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" ng-repeat="lesson in lessons ">
-                            <div class="well well-sm">
-                                <div class="thumbnail">
-							<div class="age-limit age-limit-{{lesson.age}}">
-								<div class="value">{{lesson.age}}+</div>
-								<div class="units">
-									<i class="fa fa-arrow-up"></i>
-									{{'homepage.years'|translate}}
-								</div>
-							</div>
-							<!-- age limit -->
-							<div class="image">
-								<a href="#!/public/lessons/{{lesson._id}}/intro">
-									<div lesson-title-image lesson="lesson"></div>
-								</a>
-							</div>
-                            <div dir="auto" class="title">
-								<a href="#!/public/lessons/{{lesson._id}}/intro">
-                                    <span tooltip="{{lesson.name}}">{{ lesson.name|limitTo:40 }}</span>
-									<span ng-show="lesson.name.length >40">...</span>
-								</a>
-							</div>
-							<div class="stats">
-								<table class="stats-table">
-									<tr>
-										<td>
-											<span tooltip="{{'homepage.tooltip.user' | translate}}">
-												<i class="fa fa-user fa-fw"></i>
-												{{lesson.user.username | limitTo: 8 | lowercase}}
-											</span>
-										</td>
-										<td>
-											<span tooltip="{{'homepage.tooltip.views' | translate}}">
-												<i class="fa fa-eye fa-fw"></i>
-												{{0+lesson.views}}
-											</span>
-										</td>
-										<td>
-											<span ng-show="hasQuestions(lesson)" tooltip="{{'homepage.tooltip.questions' | translate}}">
-												<i class="fa fa-question-circle fa-fw"></i>
-												{{lesson | countQuestionsOnLesson }}
-											</span>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<span tooltip="{{'lessons.createdOn' | translate}}">
-												<i class="fa fa-calendar"></i>
-												{{lesson | mongoIdToTimestamp | date:'d-MMM-yyyy'}}
-											</span>
-										</td>
-										<td colspan="2">
-											<span ng-show="!!lesson.subject" tooltip="{{'homepage.tooltip.subject' | translate}}">
-												<i class="fa fa-book fa-fw"></i>
-												{{lesson.subject && ('filters.subjects.' + lesson.subject | translate) | limitTo: 8 ||""}}
-											</span>
-										</td>
-									</tr>
-								</table>
-							</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" ng-repeat="lesson in lessons ">
+                         <div class="well well-sm">
+							 <div class="age-limit age-limit-{{lesson.age}}">
+                                    <div class="value">{{lesson.age}}+</div>
+                                    <div class="units">
+                                            <i class="fa fa-arrow-up"></i>
+                                                {{'homepage.years'|translate}}
+                                        </div>
+                                </div>
+                             <div class="thumbnail">
+                                    <a href="#!/public/lessons/{{lesson._id}}/intro">
+                                        <div lesson-title-image lesson="lesson"></div>
+                                    </a>
+                                    <div dir="auto" class="title">
+                                        <a href="#!/public/lessons/{{lesson._id}}/intro">
+                                            <span tooltip="{{lesson.name}}">{{ lesson.name|limitTo:40 }}</span>
+                                            <span ng-show="lesson.name.length >40">...</span>
+                                        </a>
+                                    </div>
+                                    <div class="stats">
+                                        <table class="stats-table">
+                                            <tr>
+                                                <td>
+                                                    <span tooltip="{{'homepage.tooltip.user' | translate}}">
+                                                        <i class="fa fa-user fa-fw"></i>
+                                                        {{lesson.user.username | limitTo: 8 | lowercase}}
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <span tooltip="{{'homepage.tooltip.views' | translate}}">
+                                                        <i class="fa fa-eye fa-fw"></i>
+                                                        {{0+lesson.views}}
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <span ng-show="hasQuestions(lesson)" tooltip="{{'homepage.tooltip.questions' | translate}}">
+                                                        <i class="fa fa-question-circle fa-fw"></i>
+                                                        {{lesson | countQuestionsOnLesson }}
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span tooltip="{{'lessons.createdOn' | translate}}">
+                                                        <i class="fa fa-calendar"></i>
+                                                        {{lesson | mongoIdToTimestamp | date:'d-MMM-yyyy'}}
+                                                    </span>
+                                                </td>
+                                                <td colspan="2">
+                                                    <span ng-show="!!lesson.subject" tooltip="{{'homepage.tooltip.subject' | translate}}">
+                                                        <i class="fa fa-book fa-fw"></i>
+                                                        {{lesson.subject && ('filters.subjects.' + lesson.subject | translate) | limitTo: 8 ||""}}
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
                          </div>
-						</div>
 					</div>
-                    </div>
-				</div>
+                </div>
 			</div>
 			<div lergo-paging page="filterPage" on-change="loadLessons()" on-load="pagingLoaded()"></div>
 		</div>
-	</div>
+        <!--</div>--><!-- is this one the loading div that doesn't seem to be use-->
     </div>
 </div>
