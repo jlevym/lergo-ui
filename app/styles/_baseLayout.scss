@@ -1,6 +1,6 @@
 $HEADER_BACKGROUND_COLOR: $COLOR_13;
 $HEADER_BACKGROUND_COLOR: $COLOR_13;
-$HEADER_HEIGHT: 110px !default;
+$HEADER_HEIGHT: 0px !default;
 $FOOTER_HEIGHT: 170px !default;
 
 // jeff's code for mobile first starts here:
@@ -399,8 +399,8 @@ $FOOTER_HEIGHT: 170px !default;
 
 #content {
     height: auto !important;
-    min-height: 750px;
-    padding-bottom: 20px;
+    /*min-height: 750px;
+    padding-bottom: 20px;*/
     & > div:first-child {
         /* guy - written like this so that we can override if needed */
         margin-top: 40px;
