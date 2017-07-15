@@ -2,7 +2,7 @@
     <div class="panel-heading">
         <h3 class="panel-title">
             <div dir="auto" class="question">
-                <p class="lergo-h4">{{quizItem.question}}</p>
+                <p style="font-size: 2em" class="lergo-h4">{{quizItem.question}}</p><br>
             </div>
         </h3>
     </div> <!--panel-heading-->
@@ -17,7 +17,7 @@
                 <textarea dir="auto" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="openQuestionTextarea" ng-show="quizItem.subType==='long'" ng-model="quizItem.userAnswer" autofocus></textarea>
                 <span ng-init="quizItem.subType==='short' ? setFocus('openQuestionText') : setFocus('openQuestionTextarea')"></span>
             </div>
-            <div ng-include="'views/questions/view/partials/_submit.html'"></div>
+            <br><div ng-include="'views/questions/view/partials/_submit.html'"></div><br>
             <div class="right">
                 <div ng-include="'views/questions/view/partials/_actionItems.html'"></div>
             </div> <!--right-->
