@@ -7,7 +7,7 @@
          aria-hidden="{{!isOpen()}}">
 
         <ul class="dropdown-menu" role="listbox">
-            <li class="uib-typeahead-match" style="font-size: 1.5em" ng-repeat="match in matches track by $index" ng-class="{active: isActive($index) }"
+            <li class="uib-typeahead-match" ng-repeat="match in matches track by $index" ng-class="{active: isActive($index) }"
                 ng-mouseenter="selectActive($index)" ng-click="selectMatch($index)" role="option" id="{{::match.id}}">
                 <div uib-typeahead-match index="$index" match="match" query="query" template-url="templateUrl"></div>
             </li>
@@ -78,14 +78,12 @@
                     </div>
                 </div>
 
-
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6" ng-show="!!opts.showTags">
                     <div class="well well-sm" style="margin-top: 1em">
                         <div>{{'filters.labels.tags' | translate }}</div>
                         <div class="input-group input-group-sm">
-                            <div class="custom-typeahead">
                                 <div tag-section tags="filterTags"></div>
-                            </div>
+                                <span class="input-group"></span>
                         </div>
                     </div>
                 </div>
@@ -94,12 +92,9 @@
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6 " ng-show="!!opts.showCreatedBy">
                         <div class="well well-sm" style="margin-top: 1em">
                             <div>{{'filters.labels.createdBy' | translate}}</div>
-                            <!-- <div class="input-group input-group-sm">-->
                             <div class="input-group input-group-sm">
                                 <div class="custom-typeahead">
-                                    <input type="text" ng-model="createdBy" uib-typeahead="user as user.username for user in users  | filter:$viewValue" typeahead-popup-template-url="customPopupTemplate.html" class="form-control">
-                                    <!--<input type="text" ng-model="createdBy" class="form-control"
-                                           uib-typeahead="user as user.username for user in users | filter:$viewValue | limitTo:15 ">-->
+                                    <input type="text" ng-model="createdBy" uib-typeahead="user as user.username for user in users  | filter:$viewValue" typeahead-popup-template-url="customPopupTemplate.html" class="form-control"/>
                                     <span class="input-group"></span>
                                 </div>
                             </div>
