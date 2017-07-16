@@ -4,7 +4,9 @@ $HEADER_HEIGHT: 0px !default;
 $FOOTER_HEIGHT: 170px !default;
 
 // jeff's code for mobile first starts here:
-
+.form-control {
+    height: auto;
+}
 
 .typeahead-demo .custom-popup-wrapper > .dropdown-menu {
     position: static;
