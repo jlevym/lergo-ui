@@ -24,13 +24,12 @@
         </div>
         <div class="collapse navbar-collapse" uib-collapse="isNavCollapsed">
             <div class="row">
-
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6"  ng-show="!!opts.showLanguage">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12"  ng-show="!!opts.showLanguage">
                 <div class="well well-sm" style="margin-top: 1em">
                     <form>
                        <div class="form-group">
-                            <label style="font-size: 2em; padding-bottom: .5em" for="sel3">{{'filters.labels.language' | translate }}</label>
-                                <select style="font-size: 2em" class="form-control" id="sel3" ng-options="l as ('filters.languages.' + l | translate) for l in languages track by l"
+                            <label style="font-size: 24px; padding-bottom: .5em" for="sel3">{{'filters.labels.language' | translate }}</label>
+                                <select style="font-size: 24px" class="form-control" id="sel3" ng-options="l as ('filters.languages.' + l | translate) for l in languages track by l"
                                         ng-model="filterLanguage">
                             </select>
                        </div>
@@ -38,14 +37,14 @@
                 </div>
             </div>
 
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6" ng-show="!!opts.showSubject" >
+                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" ng-show="!!opts.showSubject" >
                     <div class="well well-sm" style="margin-top: 1em">
                         <form>
                             <div class="form-group">
-                                <label style="font-size: 2em; padding-bottom: .5em" for="sel1">{{'filters.labels.subject' | translate }}</label>
-                                <select style="font-size: 2em" class="form-control" id="sel1" ng-options="s as ('filters.subjects.' + s | translate) for s in subjects track by s"
+                                <label style="font-size: 24px; padding-bottom: .5em" for="sel1">{{'filters.labels.subject' | translate }}</label>
+                                <select style="font-size: 24px" class="form-control" id="sel1" ng-options="s as ('filters.subjects.' + s | translate) for s in subjects track by s"
                                         ng-model="model.subject">
-                                    <option style="font-size: 1.5em" value="">{{'filters.all'|translate}}</option>
+                                    <option style="font-size: 24px" value="">{{'filters.all'|translate}}</option>
                                 </select>
                             </div>
                         </form>
@@ -54,33 +53,33 @@
 
 
 
-                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6" ng-show="!!opts.showAge">
+                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" ng-show="!!opts.showAge">
                     <div class="well well-sm" style="margin-top: 1em">
-                        <div style="font-size: 2em; padding-bottom: .5em; font-weight: 600">{{'filters.labels.ageRange' | translate }}</div>
+                        <div style="font-size: 24px; padding-bottom: .5em; font-weight: 600">{{'filters.labels.ageRange' | translate }}</div>
                         <div class="input-group input-group-sm">
-                            <input style="font-size: 2em; height: auto;" class="form-control" min="4" max="17" type="number" ng-model="ageFilter.min">
-                            <span class="input-group-addon" style="font-size: 2em">{{'filters.to'|translate}}</span>
-                            <input style="font-size: 2em; height: auto;" class="form-control" min="5" max="18" type="number" ng-model="ageFilter.max">
+                            <input style="font-size: 24px; height: auto;" class="form-control" min="4" max="17" type="number" ng-model="ageFilter.min">
+                            <span class="input-group-addon" style="font-size: 24px">{{'filters.to'|translate}}</span>
+                            <input style="font-size: 24px; height: auto;" class="form-control" min="5" max="18" type="number" ng-model="ageFilter.max">
                             <span class="input-group"></span>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6" ng-show="!!opts.showViews">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" ng-show="!!opts.showViews">
                     <div class="well well-sm" style="margin-top: 1em">
-                        <div style="font-size: 2em; padding-bottom: .5em; font-weight: 600">{{'filters.labels.views' | translate }}</div>
+                        <div style="font-size: 24px; padding-bottom: .5em; font-weight: 600">{{'filters.labels.views' | translate }}</div>
                         <div class="input-group input-group-sm">
-                            <input style="font-size: 2em; height: auto;" type="number" class="form-control" ng-model="viewsFilter.min">
-                            <span class="input-group-addon" style="font-size: 2em">To</span>
-                            <input style="font-size: 2em; height: auto;" type="number" class="form-control" ng-model="viewsFilter.max">
+                            <input style="font-size: 24px; height: auto;" type="number" class="form-control" ng-model="viewsFilter.min">
+                            <span class="input-group-addon" style="font-size: 24px">To</span>
+                            <input style="font-size: 24px; height: auto;" type="number" class="form-control" ng-model="viewsFilter.max">
                             <span class="input-group"></span>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6" ng-show="!!opts.showTags">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" ng-show="!!opts.showTags">
                     <div class="well well-sm" style="margin-top: 1em">
-                        <div style="font-size: 2em; padding-bottom: .5em; font-weight: 600">{{'filters.labels.tags' | translate }}</div>
+                        <div style="font-size: 24px; padding-bottom: .5em; font-weight: 600">{{'filters.labels.tags' | translate }}</div>
                         <div class="input-group input-group-sm">
                                 <div tag-section tags="filterTags"></div>
                                 <span class="input-group"></span>
@@ -89,12 +88,12 @@
                 </div>
 
                 <div class="typeahead-demo">
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 " ng-show="!!opts.showCreatedBy">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 " ng-show="!!opts.showCreatedBy">
                         <div class="well well-sm" style="margin-top: 1em">
-                            <div style="font-size: 2em; padding-bottom: .5em; font-weight: 600">{{'filters.labels.createdBy' | translate}}</div>
+                            <div style="font-size: 24px; padding-bottom: .5em; font-weight: 600">{{'filters.labels.createdBy' | translate}}</div>
                             <div class="input-group input-group-sm">
                                 <div class="custom-typeahead">
-                                    <input style="font-size: 2em; height: auto;" type="text" ng-model="createdBy" uib-typeahead="user as user.username for user in users  | filter:$viewValue" typeahead-popup-template-url="customPopupTemplate.html" class="form-control"/>
+                                    <input style="font-size: 24px; height: auto;" type="text" ng-model="createdBy" uib-typeahead="user as user.username for user in users  | filter:$viewValue" typeahead-popup-template-url="customPopupTemplate.html" class="form-control"/>
                                     <span class="input-group"></span>
                                 </div>
                             </div>
@@ -105,7 +104,7 @@
                 <div class="clear-filter-section" filter-is-active-show-hide relevancy-opts="opts">
                     <button class="btn btn-success wide" lergo-reset-filter> {{ 'filters.actions.clear' | translate }}</button>
                 </div>
-        </div>
+            </div>
         </div>
     </nav>
 </div>
