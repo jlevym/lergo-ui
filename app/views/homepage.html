@@ -5,40 +5,51 @@
                 <i class="fa fa-cog fa-spin"></i>
             </div>
         </div>
-	    <!--<div ng-show="!!loaded">--><!----- what is this div and where is it connected to?-->
 		<div class="homepage">
-			<div statistics-banner class="page-content-width">
-				<!-- how many lessons, and how many questions -->
-				<div class="article-header page-content-body">
-					<div class="stats-wrapper">
-						<div class="stats-lessons">
-							<div class="amount">{{systemStats.lessonsCount-900}}</div>
-							<div class="type">{{ 'homepage.lessons' | translate }}</div>
-						</div>
-						<div class="stats-questions">
-							<div class="amount">{{systemStats.questionsCount}}</div>
-							<div class="type">{{ 'homepage.questions' | translate }}</div>
-						</div>
-						<div>
-							<div class="and-counting item">
-								<span>{{ 'homepage.andCounting' | translate }}</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="upper-section page-content-sidebar">
-					<div create-your-own-box></div>
-				</div>
+            <div class="container">
+                <div class="row">
+                    <div class="hidden-sm hidden-xs">
+                        <div class="col-md-6 col-xs-12">
+                            <div statistics-banner class="page-content-width">
+                                <!-- how many lessons, and how many questions -->
+                                <div class="article-header page-content-body">
+                                    <div class="stats-wrapper">
+                                        <div class="stats-lessons">
+                                            <div class="amount">{{systemStats.lessonsCount-900}}</div>
+                                            <div class="type">{{ 'homepage.lessons' | translate }}</div>
+                                        </div>
+                                        <div class="stats-questions">
+                                            <div class="amount">{{systemStats.questionsCount}}</div>
+                                            <div class="type">{{ 'homepage.questions' | translate }}</div>
+                                        </div>
+                                        <div>
+                                            <div class="and-counting item">
+                                                <span>{{ 'homepage.andCounting' | translate }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12">
+                                    <div>
+                                        <div create-your-own-box></div>
+                                    </div>
+                                </div>
+                    </div>
+
+                </div>
 				<!-- create, it's free -->
 			</div>
-			<div class="page-content-width page-content-titles">
+			<!--<div class="page-content-width page-content-titles">
 				<div class="page-content-body">
 					<div class="lergo-h1">{{ 'featured' | translate }}</div>
 				</div>
 				<div class="page-content-sidebar">
 					<div class="lergo-h1">{{ 'lessons.filter' | translate }}</div>
 				</div>
-			</div>
+			</div>-->
             <div>
                 <div lergo-filter model="lessonsFilter" on-change="loadLessons()" opts="lessonsFilterOpts" on-load="filterLoaded()"></div>
             </div>

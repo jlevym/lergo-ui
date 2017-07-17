@@ -85,8 +85,8 @@ $FOOTER_HEIGHT: 170px !default;
 
     /** standard widths for this layout **/
     .page-content-width {
-        width: 1000px;
-        min-width: 1000px;
+        /*width: 1000px;
+        min-width: 1000px;*/
 
         /* clearfix */
         &:after {
