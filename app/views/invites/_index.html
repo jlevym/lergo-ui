@@ -6,10 +6,16 @@
 				<!-- LERGO-457-->
 			</div>
 		</div>
-		<div class="page-content-sidebar">
+        <!-- jeff: remove this for mobile version-->
+		<!--<div class="page-content-sidebar">
 			<div class="lergo-h1">{{ 'invites.filter' | translate }}</div>
-		</div>
+		</div>-->
 	</div>
+    <!-- jeff: move this from bottom to top for mobile version-->
+    <div>
+        <div lergo-filter model="invitesFilter" on-change="loadInvites()" opts="invitesFilterOpts" on-load="filterLoaded()"></div>
+    </div>
+
 	<div class="page-content-width">
 		<div class="page-content-body">
             <div filter-is-active="invitesFilterOpts" section="invites"></div>
@@ -79,9 +85,10 @@
 				</tbody>
 			</table>
 		</div>
-		<div class="sidebar page-content-sidebar">
+        <!-- moved to top for mobile version - jeff-->
+		<!--<div class="sidebar page-content-sidebar">
 			<div lergo-filter model="invitesFilter" on-change="loadInvites()" opts="invitesFilterOpts" on-load="filterLoaded()"></div>
-		</div>
+		</div>-->
 	</div>
 	<div lergo-paging page="filterPage" on-change="loadInvites()" on-load="pagingLoaded()"></div>
 </div>

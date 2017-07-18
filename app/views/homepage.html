@@ -44,17 +44,7 @@
                     </div>
 
                 </div>
-				<!-- create, it's free -->
 			</div>
-			<!--<div class="page-content-width page-content-titles">
-				<div class="page-content-body">
-					<div class="lergo-h1">{{ 'featured' | translate }}</div>
-				</div>
-				<div class="page-content-sidebar">
-					<div class="lergo-h1">{{ 'lessons.filter' | translate }}</div>
-				</div>
-			</div>-->
-
             <div>
             <div lergo-filter model="lessonsFilter" on-change="loadLessons()" opts="lessonsFilterOpts" on-load="filterLoaded()"></div>
             </div>
@@ -132,6 +122,5 @@
 
             <div lergo-paging page="filterPage" on-change="loadLessons()" on-load="pagingLoaded()"></div>
 		</div>
-        <!--</div>--><!-- is this one the loading div that doesn't seem to be use-->
     </div>
 </div>
