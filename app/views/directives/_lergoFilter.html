@@ -19,10 +19,11 @@
     <nav class="navbar navbar-default" role="navigation">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle pull-left" ng-click="isNavCollapsed = !isNavCollapsed">
-                <p style="font-size: 0.9em" class="well well-sm">LANGUAGE | SUBJECT | AGE | VIEWS | BY | TAGS</p>
+                <!--<p style="font-size: 0.9em" class="well well-sm">LANGUAGE | SUBJECT | AGE | VIEWS | BY | TAGS</p>-->
+                <p style="font-size: 0.9em" class="well well-sm">TOGGLE FILTERS</p>
             </button>
         </div>
-        <div class="collapse navbar-collapse" uib-collapse="isNavCollapsed">
+        <div class="collapse navbar-collapse" uib-collapse="!isNavCollapsed">
             <div class="row">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12"  ng-show="!!opts.showLanguage">
                 <div class="well well-sm" style="margin-top: 1em">
