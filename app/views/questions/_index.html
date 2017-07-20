@@ -3,7 +3,25 @@
     <br/>
     <div class="page-content-width page-content-titles" ng-show="!isModal">
         <div class="page-content-body">
-            <div class="lergo-h1">
+
+            <!-- Single button using append-to-body -->
+            <div class="btn-group" uib-dropdown dropdown-append-to-body>
+                <button id="btn-append-to-body" type="button" class="btn btn-primary" uib-dropdown-toggle>
+                    <span>{{('questions.'+ questionToLoad |translate)}} </span>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+                    <li role="menuitem"><a class="btn-link" style="outline: none;" ng-click="load(QuestionTypeToLoad.user)">{{'questions.myQuestions'|translate}}</a></li>
+                    <li role="menuitem"><a class="btn-link" style="outline: none;" ng-click="load(QuestionTypeToLoad.all)">{{'questions.allQuestions'|translate}}</a></li>
+                    <li role="menuitem"><a class="btn-link" style="outline: none;" ng-click="load(QuestionTypeToLoad.liked)">{{'questions.likedQuestions'|translate}}</a></a></li>
+                    <li class="divider"></li>
+                    <li role="menuitem"><a href="#">Separated link</a></li>
+                </ul>
+            </div>
+            [ {{ 'questions.total' | translate }}: {{filterPage.count}} ]
+        </div>
+
+            <!--<div class="lergo-h1">
                 <div class="btn-group" dropdown>
                     <button type="button" class="btn-link" dropdown-toggle
                             style="color: #5fb9ff; text-decoration: none">
@@ -19,7 +37,7 @@
                     </ul>
                 </div>
                 [ {{ 'questions.total' | translate }}: {{filterPage.count}} ]
-            </div>
+            </div>-->
             <div class="page-content-titles-actions">
                 <button class="btn btn-start" ng-click="createQuestionBtnDisable || createNewQuestion()"
                         ng-disabled="createQuestionBtnDisable">
@@ -28,9 +46,10 @@
                 </button>
             </div>
         </div>
-        <div class="page-content-sidebar">
+    <!-- remove this banner in mobile first -jeff -->
+        <!--<div class="page-content-sidebar">
             <div class="lergo-h1">{{ 'questions.filter' | translate }}</div>
-        </div>
+        </div>-->
     </div>
     <div class="page-content-width">
         <div class="page-content-body">
