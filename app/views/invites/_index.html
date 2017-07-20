@@ -11,7 +11,7 @@
 			<div class="lergo-h1">{{ 'invites.filter' | translate }}</div>
 		</div>-->
 	</div>
-    <!-- jeff: move this from bottom to top for mobile version-->
+    <!-- jeff: move this from bottom to top for mobile version and remove the class-->
     <div>
         <div lergo-filter model="invitesFilter" on-change="loadInvites()" opts="invitesFilterOpts" on-load="filterLoaded()"></div>
     </div>
@@ -23,7 +23,7 @@
                 <div class="page-content-width "  >
                     <div class="page-content-body">
                         <div filter-is-active="invitesFilterOpts" section="invites"></div>
-                        <table class="well well-sm">
+                        <table class=" well well-sm">
                             <!--<table class="lergo-table">-->
                             <thead>
                                 <tr>
