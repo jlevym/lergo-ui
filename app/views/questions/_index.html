@@ -4,6 +4,13 @@
     <div class="page-content-width page-content-titles" ng-show="!isModal">
         <div class="page-content-body">
 
+            <div> <!--jeff: sidebar moved from the bottom-->
+                <div lergo-filter no-url-changes="{{isModal}}" model="questionsFilter" on-change="loadQuestions()"
+                     on-load="filterLoaded()"
+                     opts="questionsFilterOpts"></div>
+            </div>
+
+
             <!-- Single button using append-to-body -->
             <div class="btn-group" uib-dropdown dropdown-append-to-body>
                 <button id="btn-append-to-body" type="button" class="btn btn-primary" uib-dropdown-toggle>
@@ -88,11 +95,11 @@
                 class="alert alert-warning font-medium">{{ 'questions.noQuestions' | translate }}</span></div>
         </div>
 
-        <div class="sidebar page-content-sidebar">
+       <!-- <div class="sidebar page-content-sidebar">
             <div lergo-filter no-url-changes="{{isModal}}" model="questionsFilter" on-change="loadQuestions()"
                  on-load="filterLoaded()"
                  opts="questionsFilterOpts"></div>
-        </div>
+        </div>-->
     </div>
     <div lergo-paging page="filterPage" on-change="loadQuestions()" on-load="pagingLoaded()"></div>
 </div>
