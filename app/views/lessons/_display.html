@@ -75,29 +75,26 @@
     <br/>
     <div class="stats">
         <div class="action-items">
-			<span show-logged-in>
-				<button class="btn-link" ng-click="likeLesson()" tooltip="{{'lessons.tooltip.like' | translate}}"
-                        ng-show="!isLiked()">
-					<i class="fa fa-heart-o "></i>
-					{{'like' | translate}}
-				</button>
-				<span class="btn-link dropdown" ng-click="noop()" tooltip="{{'lessons.tooltip.liked' | translate}}"
-                      ng-show="!!isLiked()">
-					<span class="dropdown-toggle">
-						<i class="fa fa-heart-o "></i>
-						{{'liked' | translate}}
-						<i class="fa fa-caret-down " ng-click="openLikeMenu()"></i>
-						<span ng-show="!!showMenu">
-							<button class="btn-link">{{'dislike' | translate}}</button>
-						</span>
-					</span>
-					<span class="dropdown-menu">
-						<li>
-							<button class="btn-link" ng-click="unlikeLesson()">{{ 'unlike' | translate }}</button>
-						</li>
-					</span>
-				</span>
-			</span>
+            <div show-logged-in>
+                <button class="btn-link" ng-click="likeLesson()"
+                        tooltip="{{'lessons.tooltip.like' | translate}}" ng-show="!isLiked()">
+                    <i class="fa fa-heart-o "></i>
+                    {{'like' | translate}}
+                </button>
+                <div class="btn-group" uib-dropdown ng-show="!!isLiked()">
+                    <button class="btn-link" uib-dropdown-toggle>
+                        <i class="fa fa-heart-o "></i>
+                        {{'liked' | translate}}
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a class="btn-link" style="outline: none;" ng-click="unlikeLesson()">{{
+                                'unlike' | translate }}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
             <a href="" show-anonymous class="btn-link" popover="{{'lessons.likeNotAvailable' | translate}}"
                popover-placement="top" popover-trigger="focus"
                tabindex="0">
