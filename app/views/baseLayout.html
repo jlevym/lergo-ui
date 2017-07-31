@@ -34,11 +34,11 @@
                     </div>
                     </form>
 
-                    <div class="header-language">
+                    <!--<div class="header-language">
                         <i class="fa fa-globe fa-fw"></i>
 
                         <select ng-model="baseLayout.language" ng-options="lang.id as ( 'general.translationLanguage.' + lang.id | translate ) for lang in baseLayout.lergoLanguages" tooltip="{{'baseLayout.header.siteLanguage' | translate}}" tooltip-placement="right"></select>
-                    </div>
+                    </div>-->
 
                     <ul class="nav navbar-nav navbar-left">
                         <!--<li class="btn-group" uib-dropdown is-open="status.isopen">
@@ -53,7 +53,20 @@
                         </div>
                         </li>
                     </ul>
-
+                    <div>
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                                <div>
+                                    <form>
+                                        <div class="form-group">
+                                            <label style=" padding-bottom: .5em">{{'filters.labels.language' | translate }}</label>
+                                            <select ng-model="baseLayout.language" ng-options="lang.id as ( 'general.translationLanguage.' + lang.id | translate ) for lang in baseLayout.lergoLanguages" ></select>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </nav>
