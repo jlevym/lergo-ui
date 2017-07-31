@@ -7,7 +7,7 @@
  * # goToMyLessonsDemo
  */
 angular.module('lergoApp')
-    .directive('goToMyLessonsDemo', function (LergoClient, $modal , $location, localStorageService) {
+    .directive('goToMyLessonsDemo', function (LergoClient, $uibModal , $location, localStorageService) {
         return {
             templateUrl: 'views/demos/goToMyLessonsDemo.html',
             restrict: 'A',
