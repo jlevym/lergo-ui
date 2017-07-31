@@ -34,14 +34,20 @@
                     </div>
                     </form>
 
+                    <div class="header-language">
+                        <i class="fa fa-globe fa-fw"></i>
+
+                        <select ng-model="baseLayout.language" ng-options="lang.id as ( 'general.translationLanguage.' + lang.id | translate ) for lang in baseLayout.lergoLanguages" tooltip="{{'baseLayout.header.siteLanguage' | translate}}" tooltip-placement="right"></select>
+                    </div>
+
                     <ul class="nav navbar-nav navbar-left">
-                        <li class="btn-group" uib-dropdown is-open="status.isopen">
+                        <!--<li class="btn-group" uib-dropdown is-open="status.isopen">
                             <a href="#" class="btn btn-basic" uib-dropdown-toggle ng-disabled="disabled">Language <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li> <select ng-model="baseLayout.language" ng-options="lang.id as ( 'general.translationLanguage.' + lang.id | translate ) for lang in baseLayout.lergoLanguages" tooltip="{{'baseLayout.header.siteLanguage' | translate}}" tooltip-placement="right"></select></a>
                                 </li>
                             </ul>
-                        </li>
+                        </li>-->
                         <li><div class="header-actions">
                             <div id="profileloginbuttonj"  profile-login-button="$root.user"></div>
                         </div>
