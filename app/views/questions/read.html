@@ -8,22 +8,7 @@
                 <td style="vertical-align: top;">
                     <div class="page-content-body">
                         <div dir="auto" class="question">
-                            <div class="stats">
-                                    <span class="stats-button age-limit-{{quizItem.age}} no-color"
-                                          ng-show="!!quizItem.age"> {{quizItem.age}}+ {{'homepage.years'|translate}} </span>
-                                    <span class="stats-button" tooltip="{{'homepage.tooltip.views' | translate}}">
-                                        <i class="fa fa-eye fa-fw"></i>
-                                        {{0+quizItem.views}}
-                                    </span>
-                                    <span class="stats-button" tooltip="{{'questions.tooltip.lessons' | translate}}">
-                                        <i class="fa fa-university fa-fw"></i>
-                                        {{0+ lessons.length }}
-                                    </span>
-                                    <span class="stats-button" tooltip="{{'homepage.tooltip.likes' | translate}}">
-                                        <i class="fa fa-heart-o"></i>
-                                        {{0+questionLikes }}
-                                    </span>
-                            </div>
+
                             <div class="action-items" ng-show="!!permissions">
                                 <div class="action-items-bottom">
                                     <a class="btn-link" ng-click="copyQuestion(quizItem)"
@@ -41,6 +26,22 @@
                                 </div>
                             </div>
                             <div ng-include="getQuestionViewTemplate(quizItem)"></div>
+                            <div class="stats">
+                                    <span class="stats-button age-limit-{{quizItem.age}} no-color"
+                                          ng-show="!!quizItem.age"> {{quizItem.age}}+ {{'homepage.years'|translate}} </span>
+                                <span class="stats-button" tooltip="{{'homepage.tooltip.views' | translate}}">
+                                        <i class="fa fa-eye fa-fw"></i>
+                                        {{0+quizItem.views}}
+                                    </span>
+                                <span class="stats-button" tooltip="{{'questions.tooltip.lessons' | translate}}">
+                                        <i class="fa fa-university fa-fw"></i>
+                                        {{0+ lessons.length }}
+                                    </span>
+                                <span class="stats-button" tooltip="{{'homepage.tooltip.likes' | translate}}">
+                                        <i class="fa fa-heart-o"></i>
+                                        {{0+questionLikes }}
+                                    </span>
+                            </div>
                             <div class="details">
                                 <div class="properties">
 						<span tooltip="{{'homepage.tooltip.user' | translate}}">
