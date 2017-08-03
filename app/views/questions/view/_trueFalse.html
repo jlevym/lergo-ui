@@ -1,25 +1,48 @@
-<div id="questionPreview" ng-keyup="$event.keyCode === 13 ?  enterPressed(quizItem) : null" tabindex="1">
-	<div class="left">
-		<div dir="auto" class="question">
-			<p class="lergo-h4">{{quizItem.question}}</p>
-		</div>
-		<div class="help">
-			<p dir="auto" class="question-help-text">{{quizItem.helpText}}</p>
-		</div>
-		<div quiz-item-media quiz-item="quizItem"></div>
-		<div class="answers">
-			<div true-false quiz-item="quizItem" on-click="checkAnswer()"></div>
-		</div>
-		<div ng-include="'views/questions/view/partials/_submit.html'" ng-init="hideSubmitButton=true"></div>
-	</div>
-	<div class="right">
-		<div ng-include="'views/questions/view/partials/_actionItems.html'"></div>
-	</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12 col-xs-12">
+            <div id="questionPreviewTrueFalse" ng-keyup="$event.keyCode === 13 ?  enterPressed(quizItem) : null" tabindex="1">
+
+                <div dir="auto" class="question">
+                    <p class="lergo-h4">{{quizItem.question}}</p>
+                </div>
+
+                <div class="help">
+                    <p dir="auto" class="question-help-text">{{quizItem.helpText}}</p>
+                </div>
+
+                <div quiz-item-media quiz-item="quizItem"></div>
+
+                <div class="answers">
+                    <div true-false quiz-item="quizItem" on-click="checkAnswer()"></div>
+                </div>
+
+                <div ng-include="'views/questions/view/partials/_submit.html'" ng-init="hideSubmitButton=true"></div>
+
+                <!--<div class="left">
+                    <div dir="auto" class="question">
+                        <p class="lergo-h4">{{quizItem.question}}</p>
+                    </div>
+                    <div class="help">
+                        <p dir="auto" class="question-help-text">{{quizItem.helpText}}</p>
+                    </div>
+                    <div quiz-item-media quiz-item="quizItem"></div>
+                    <div class="answers">
+                        <div true-false quiz-item="quizItem" on-click="checkAnswer()"></div>
+                    </div>
+                    <div ng-include="'views/questions/view/partials/_submit.html'" ng-init="hideSubmitButton=true"></div>
+                </div>-->
+                <div class="right">
+                    <div ng-include="'views/questions/view/partials/_actionItems.html'"></div>
+                </div>
+            </div>
+            <div>
+                <div style="padding: 1em 1em 0 1em" lergo-progress-bar ng-ready="updateProgress()" animate="true" value="progressPercentage" type="primary" class="progressbar">
+                    <b>{{progressPercentage}}%</b>
+                </div>
+            </div>
+            <br>
+            <div ng-include="'views/questions/view/partials/_result.html'"></div>
+        </div>
+    </div>
 </div>
-<div>
-	<div lergo-progress-bar ng-ready="updateProgress()" animate="true" value="progressPercentage" type="primary" class="progressbar">
-		<b>{{progressPercentage}}%</b>
-	</div>
-</div>
-<br>
-<div ng-include="'views/questions/view/partials/_result.html'"></div>
