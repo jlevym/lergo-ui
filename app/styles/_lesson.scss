@@ -43,18 +43,18 @@
 
 #lessonDisplay {
     #content {
-        /*padding-bottom: 100px;*/
+        padding-bottom: 100px;
     }
     .done-step {
-       /* background-image: url("../images/certificate_resize.png");
-        background-size: contain;
+        background-image: url("../images/certificate_resize.png");
+        background-size: 100% 100%;
         background-repeat: no-repeat;
-        background-position: center top;*/
+        background-position: center top;
         margin: 0 auto;
         /*width: 553px;
         height: 550px;*/
-        width: 100%;
-        height: 45em;
+        /*width: 100%;
+        height: 45em;*/
         .congrats {
             /*font-size: 30px;*/
             font-size: 1.8em;
@@ -96,12 +96,12 @@
             .action-items {
                 text-align: left;
             }
-            /*.forms {
-                background: #efefef;
-                !*padding: 5px;*!
-                padding: 0.3em;
+            .forms {
+                /*background: #efefef;*/
+                /*padding: 5px;*/
+                padding: 4em;
                 border-radius: 10px;
-            }*/
+            }
         }
     }
     .loading {
