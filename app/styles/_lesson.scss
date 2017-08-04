@@ -53,8 +53,7 @@
         margin: 0 auto;
         /*width: 553px;
         height: 550px;*/
-        /*width: 100%;
-        height: 45em;*/
+       max-width: 40em;
         .congrats {
             /*font-size: 30px;*/
             font-size: 1.8em;
@@ -99,7 +98,7 @@
             .forms {
                 /*background: #efefef;*/
                 /*padding: 5px;*/
-                padding: 4em;
+                padding: 5em;
                 border-radius: 10px;
             }
         }
