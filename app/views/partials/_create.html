@@ -4,7 +4,9 @@
 			<li ng-repeat="section in sections" ng-class="{'active' : isActive(section)}">
 				<a href="#!/user/create/{{section.id}}">
 					<i class="{{section.icon}}"></i>
-					{{'baseLayout.header.links.' + section.id | translate}}
+                    <div class="hidden-sm hidden-xs">
+					    {{'baseLayout.header.links.' + section.id | translate}}
+                    </div>
 				</a>
 			</li>
 		</ul>
