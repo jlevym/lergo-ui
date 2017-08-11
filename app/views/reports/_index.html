@@ -11,8 +11,8 @@
                     ng-options="repType.id as ( 'reports.type.' + repType.id | translate ) for repType in reportTypes">
             </select>
         </div>
-        <!--remove for mobile first &#45;&#45; jeff
-        <div class="page-content-sidebar">
+        <!--remove for mobile first &#45;&#45; jeff -->
+      <!--  <div class="page-content-sidebar">
             <div class="lergo-h1">{{ 'reports.filter' | translate }}</div>
         </div>-->
 
@@ -22,13 +22,16 @@
             </div>
 
     </div>
-    <div class="page-content-width">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+
         <div class="page-content-body">
             <div filter-is-active="reportsFilterOpts" section="reports"></div>
-            <table class="well well-sm table">
+            <table class="table" style="border: 1px solid darkred; word-break:keep-all; color: green; font-size: 70%">
                 <thead>
                 <tr>
-                    <td class="checkbox-dropdown">
+                    <td class="checkbox-dropdown-na" style="width: 5px">
                         <div class="btn-group" dropdown>
                             <input type="checkbox" ng-click="selectAll($event)" ng-model="reportsPage.selectAll">
                             <button type="button" class="btn-link" dropdown-toggle>
@@ -46,14 +49,14 @@
                             </ul>
                         </div>
                     </td>
-                    <td>{{ 'name' | translate }}</td>
-                    <td ng-show="showStudentCountColumn()">{{'reports.studentCount' | translate}}</td>
-                    <td ng-show="showStudentColumn()">{{ 'reports.student' | translate}}</td>
-                    <td ng-show="showClassColumn()">{{ 'reports.class' | translate}}</td>
-                    <td>{{ 'reports.subject' | translate}}</td>
-                    <td>{{ 'reports.takenAt' | translate}}</td>
-                    <td>{{ 'reports.correctPercentage' | translate }}</td>
-                    <td>{{ 'reports.duration'|translate}}</td>
+                    <td style="width: 5px">{{ 'name' | translate }}</td>
+                    <td ng-show="showStudentCountColumn()" style="width: 5px">{{'reports.studentCount' | translate}}</td>
+                    <td ng-show="showStudentColumn()" style="width: 5px">{{ 'reports.student' | translate}}</td>
+                    <td ng-show="showClassColumn()" style="width: 5px">{{ 'reports.class' | translate}}</td>
+                    <td style="width: 5px">{{ 'reports.subject' | translate}}</td>
+                    <td style="width: 5px">{{ 'reports.takenAt' | translate}}</td>
+                    <td style="width: 5px">{{ 'reports.correctPercentage' | translate }}</td>
+                    <td style="width: 5px">{{ 'reports.duration'|translate}}</td>
                 </tr>
                 </thead>
                 <tbody>
@@ -64,7 +67,7 @@
                     <td dir="auto" class="name">
                         <a ng-show="!!report.data.lesson.name && report.data.lesson.name.trim().length > 0"
                            tooltip="{{'reports.tooltip.go' | translate}}"
-                           ng-href="{{getReportLink(report._id)}}">{{ getReportName(report) }}</a>
+                           ng-href="{{getReportLink(report._id)}}" style ="word-break:keep-all; color: red">{{ getReportName(report) }}</a>
                     </td>
                     <td class="answer" ng-show="showStudentCountColumn()">{{report.count}}</td>
                     <td class="answer" ng-show="showStudentColumn()">{{report.data.invitee.name}}</td>
@@ -82,11 +85,13 @@
                 </tbody>
             </table>
         </div>
-      <!--  <div class="sidebar page-content-sidebar">
+       <!-- <div class="sidebar page-content-sidebar">
             <div lergo-filter model="reportsFilter" on-change="loadReports()" opts="reportsFilterOpts"
                  on-load="filterLoaded()" report-type="reportsPage.reportType">
             </div>
         </div>-->
+    </div>
+    </div>
     </div>
     <div lergo-paging page="filterPage" on-change="loadReports()" on-load="pagingLoaded()"></div>
 </div>
