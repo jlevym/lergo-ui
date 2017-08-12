@@ -20,7 +20,8 @@
         <div class="navbar-header ">
             <button type="button" class="navbar-toggle pull-left well well-sm" ng-click="isNavCollapsed = !isNavCollapsed">
                 <!--<p style="font-size: 0.9em" class="well well-sm">LANGUAGE | SUBJECT | AGE | VIEWS | BY | TAGS</p>-->
-                <div style="font-size: 0.9em">TOGGLE FILTERS</div>
+               <!-- <div style="font-size: 0.9em">TOGGLE FILTERS</div>-->
+                <div style="font-size: 0.9em">LANGUAGE | SUBJECT | TAGS</div>
             </button>
         </div>
         <div class="collapse navbar-collapse" uib-collapse="!isNavCollapsed">
@@ -31,7 +32,7 @@
                             <div class="form-group">
                                 <label style=" padding-bottom: .5em" for="sel3">{{'filters.labels.language' | translate }}</label>
                                 <select  class="form-control" id="sel3" ng-options="l as ('filters.languages.' + l | translate) for l in languages track by l"
-                                         ng-model="filterLanguage">
+                                         ng-model="filterLanguage" ng-change="isNavCollapsed = !isNavCollapsed">
                                 </select>
                             </div>
                         </form>
@@ -44,7 +45,7 @@
                             <div class="form-group">
                                 <label style="padding-bottom: .5em" for="sel1">{{'filters.labels.subject' | translate }}</label>
                                 <select class="form-control" id="sel1" ng-options="s as ('filters.subjects.' + s | translate) for s in subjects track by s"
-                                        ng-model="model.subject">
+                                        ng-model="model.subject" ng-change="isNavCollapsed = !isNavCollapsed">
                                     <option value="">{{'filters.all'|translate}}</option>
                                 </select>
                             </div>
@@ -155,7 +156,7 @@
                             <div class="form-group">
                                 <label style="padding-bottom: .5em" for="selsR">{{'filters.labels.status' | translate }}</label>
                                 <select class="form-control" id="selsR" ng-options="s as ('filters.status.' + s | translate) for s in reportStatus"
-                                        ng-model="reportStatusValue">>
+                                        ng-model="reportStatusValue" ng-change="isNavCollapsed = !isNavCollapsed">
                                     <option value="">{{'filters.all'|translate}}</option>
                                 </select>
                             </div>
@@ -163,7 +164,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-2 col-md-3 col-sm-3 col-xs-6" ng-show="!!opts.showReportLesson">
+                <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12" ng-show="!!opts.showReportLesson">
                     <div class="well well-sm" style="margin-top: 1em">
                         <div style="padding-bottom: .5em; font-weight: 600">{{'filters.label.reportLesson' | translate }}</div>
                         <div class="input-group input-group-sm">
