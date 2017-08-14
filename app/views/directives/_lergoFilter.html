@@ -24,8 +24,21 @@
                 <div style="font-size: 0.9em">LANGUAGE | SUBJECT | TAGS</div>
             </button>
         </div>
+
+
         <div class="collapse navbar-collapse" uib-collapse="!isNavCollapsed">
             <div class="row">
+
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" ng-show="!!opts.showReportLesson">
+                    <div class="well well-sm" style="margin-top: 1em">
+                        <div style="padding-bottom: .5em; font-weight: 600">{{'filters.label.reportLesson' | translate }}</div>
+                        <div class="input-group input-group-sm">
+                            <div report-lesson-filter="reportLesson" report-type="reportType"></div>
+                            <span class="input-group"></span>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6"  ng-show="!!opts.showLanguage">
                     <div class="well well-sm" style="margin-top: 1em">
                         <form>
@@ -164,15 +177,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" ng-show="!!opts.showReportLesson">
-                    <div class="well well-sm" style="margin-top: 1em">
-                        <div style="padding-bottom: .5em; font-weight: 600">{{'filters.label.reportLesson' | translate }}</div>
-                        <div class="input-group input-group-sm">
-                            <div report-lesson-filter="reportLesson" report-type="reportType"></div>
-                            <span class="input-group"></span>
-                        </div>
-                    </div>
-                </div>
+
 
 
                 <!-- start adding filters here -->
