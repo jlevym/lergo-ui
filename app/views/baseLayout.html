@@ -24,42 +24,28 @@
                             <a href="#!/public/contribute">{{ 'baseLayout.header.links.contribute'| translate }} </a>
                         </li>
                     </ul>
-                    <form class="navbar-form navbar-left" role="search">
+                    <form class="navbar-form navbar-left header-searchjeff" role="search">
                     <div class="form-group" ui-keypress="{enter: 'searchOnHomepage()'}">
                         <input class="form-control" ng-class="{'search-color' : baseLayout.filterTextSearch.length > 0 }" placeholder="{{'baseLayout.header.searchPlaceholder' | translate  }}" ng-model="baseLayout.filterTextSearch" />
-                        <button type="submit" ng-click="searchOnHomepage()" class="btn btn-default">Submit</button>
+                        <button type="submit" ng-click="searchOnHomepage()" class="btn btn-link">Submit</button>
                         <a style="text-decoration: none;" href="#!/user/homepage" class="btn btn-link">
                             <span class="cancel-search"  tooltip="{{'homepage.tooltip.searchReset' | translate}}" tooltip-placement="right">X</span>
                         </a>
                     </div>
                     </form>
-
-                    <!--<div class="header-language">
-                        <i class="fa fa-globe fa-fw"></i>
-
-                        <select ng-model="baseLayout.language" ng-options="lang.id as ( 'general.translationLanguage.' + lang.id | translate ) for lang in baseLayout.lergoLanguages" tooltip="{{'baseLayout.header.siteLanguage' | translate}}" tooltip-placement="right"></select>
-                    </div>-->
-
                     <ul class="nav navbar-nav navbar-left">
-                        <!--<li class="btn-group" uib-dropdown is-open="status.isopen">
-                            <a href="#" class="btn btn-basic" uib-dropdown-toggle ng-disabled="disabled">Language <span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li> <select ng-model="baseLayout.language" ng-options="lang.id as ( 'general.translationLanguage.' + lang.id | translate ) for lang in baseLayout.lergoLanguages" tooltip="{{'baseLayout.header.siteLanguage' | translate}}" tooltip-placement="right"></select></a>
-                                </li>
-                            </ul>
-                        </li>-->
                         <li><div class="header-actions">
-                            <div id="profileloginbuttonj"  profile-login-button="$root.user"></div>
-                        </div>
+                                <div id="profileloginbuttonj"  profile-login-button="$root.user"></div>
+                            </div>
                         </li>
-                         <li>
-                                    <form style="padding: 0.7em 0 0 1.2em">
-                                        <div class="form-group">
-                                            <label style=" padding-bottom: .5em">{{'filters.labels.language' | translate }}</label>
-                                            <select ng-model="baseLayout.language" ng-options="lang.id as ( 'general.translationLanguage.' + lang.id | translate ) for lang in baseLayout.lergoLanguages" ></select>
-                                        </div>
-                                    </form>
-                         </li>
+                        <li>
+                           <form style="padding: 0.7em 0 0 1.2em">
+                               <div class="form-group">
+                                   <label style=" padding-bottom: .5em">{{'filters.labels.language' | translate }}</label>
+                                   <select ng-model="baseLayout.language" ng-options="lang.id as ( 'general.translationLanguage.' + lang.id | translate ) for lang in baseLayout.lergoLanguages" ></select>
+                               </div>
+                           </form>
+                        </li>
                     </ul>
                 </div>
             </nav>
