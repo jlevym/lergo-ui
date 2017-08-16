@@ -1,6 +1,6 @@
 <div class="header-signup" ng-show="!user">
     <a href="#!/public/session/login"> {{ 'button.login' | translate }}</a>
-    <a href="#!/public/session/signup"> {{ 'button.signup' | translate }}</a>
+    <a href="#!/public/session/signup" style="padding-left: 1em"> {{ 'button.signup' | translate }}</a>
 </div>
 <div class="header-login" ng-show="!!user" ng-mouseleave="openMenu(false)">
     <a href="#!/user/create/invites" ng-click="mouseClicked($event)" ng-mouseover="openMenu(true)">

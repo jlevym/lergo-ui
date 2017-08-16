@@ -52,22 +52,15 @@
                             <div id="profileloginbuttonj"  profile-login-button="$root.user"></div>
                         </div>
                         </li>
-                    </ul>
-                    <div>
-                        <div class="row">
-                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4">
-                                <div>
-                                    <form>
+                         <li>
+                                    <form style="padding: 0.7em 0 0 1.2em">
                                         <div class="form-group">
                                             <label style=" padding-bottom: .5em">{{'filters.labels.language' | translate }}</label>
                                             <select ng-model="baseLayout.language" ng-options="lang.id as ( 'general.translationLanguage.' + lang.id | translate ) for lang in baseLayout.lergoLanguages" ></select>
                                         </div>
                                     </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                         </li>
+                    </ul>
                 </div>
             </nav>
         </div>
