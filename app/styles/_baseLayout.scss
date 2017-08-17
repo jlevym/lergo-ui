@@ -140,9 +140,10 @@ $FOOTER_HEIGHT: 170px !default;
         margin-top: -13px;
     }
     input {
+        display: inline-block;
         border-top-left-radius: 8px;
         height: 35px;
-        width: 430px;
+        width: 400px;
         font-weight: bold;
         border-bottom-left-radius: 3px;
         border: none;
@@ -171,8 +172,8 @@ $FOOTER_HEIGHT: 170px !default;
     .search-color {
         color: #802c80;
     }
-    .cancel-search1 {
-        position:relative;
+    .cancel-search {
+        /*position:relative;*/
         right: 60px;
         color: darkgrey;
         font-size: 14px;
