@@ -37,6 +37,34 @@ $FOOTER_HEIGHT: 170px !default;
             }
         }
     }
+    .header-login {
+        /*text-align: center;*/
+        .user-section-menu {
+            margin-right:100px;
+        }
+        & > a {
+            color: white;
+           /* display: inline-block;*/
+            font-size: 18px;
+            text-overflow:ellipsis;
+            white-space: nowrap;
+            overflow:hidden;
+            max-width:100%;
+            text-decoration: none;
+            padding: 15px 1em;
+            margin:-15px;
+            text-align: center;
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.3)
+            }
+           /* &:last-child {
+                float: right;
+            }*/
+            img{
+                padding-right:5px;
+            }
+        }
+    }
 }
 
 #jheader {
