@@ -27,6 +27,16 @@ $FOOTER_HEIGHT: 170px !default;
 
 #profileloginbuttonj {
     padding-top: 0.9em;
+    .header-signup {
+        a {
+            color: white;
+            font-size: 1em;
+            padding: 10px 15px;
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.3)
+            }
+        }
+    }
 }
 
 #jheader {
