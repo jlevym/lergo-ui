@@ -79,17 +79,14 @@ angular.module('lergoApp')
                 return true;
             }
             else {
-                var allStepsCompleted = report.data.lesson.steps.length === this.countCompletedSteps(report);
-                return !!report.data && !!report.data.lesson && !!report.data.lesson.steps && allStepsCompleted;
-        this.isCompleted = function(report){
-            if(angular.isDefined(report)) {
-                if ( report.finished ){ // guy - adding this to : (1) shorten the process (2) fix bug where invitation is deleted and then suddenly 'incomplete' appears in reports index page.
-                    return true;
-                }else {
-                    return !!report && !!report.data && !!report.data.lesson && !!report.data.lesson.steps && report.data.lesson.steps.length === this.countCompletedSteps(report);
+                try {
+
+                    var allStepsCompleted = report.data.lesson.steps.length === this.countCompletedSteps(report);
+                    return !!report.data && !!report.data.lesson && !!report.data.lesson.steps && allStepsCompleted;
                 }
-            } else {
-                    return false;
+                catch(err) {
+                    /*cannot read length of undefined*/
+                }
             }
             return false;
         };
