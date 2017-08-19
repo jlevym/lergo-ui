@@ -4,7 +4,19 @@
     <div class="page-content-width page-content-titles" ng-show="!isModal">
         <div class="page-content-body">
             <div class="lergo-h1">
-                <div class="btn-group" dropdown>
+                <!-- using uib-bootstrap code to get dropdown to 'dropdown' in angular 1.6-->
+                <div class="btn-group" uib-dropdown dropdown-append-to-body>
+                    <button id="btn-append-to-body" type="button" class="btn btn-primary" uib-dropdown-toggle>
+                        <span>{{('questions.'+ questionToLoad |translate)}} </span>
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+                        <li role="menuitem"><a class="btn-link" style="outline: none;" ng-click="load(QuestionTypeToLoad.user)">{{'questions.myQuestions'|translate}}</a></li>
+                        <li role="menuitem"><a class="btn-link" style="outline: none;" ng-click="load(QuestionTypeToLoad.all)">{{'questions.allQuestions'|translate}}</a></li>
+                        <li role="menuitem"><a class="btn-link" style="outline: none;" ng-click="load(QuestionTypeToLoad.liked)">{{'questions.likedQuestions'|translate}}</a></a></li>
+                    </ul>
+                </div>
+               <!-- <div class="btn-group" dropdown>
                     <button type="button" class="btn-link" dropdown-toggle
                             style="color: #5fb9ff; text-decoration: none">
                         <span class="fa fa-caret-down"></span>
@@ -17,7 +29,7 @@
                             <a class="btn-link" style="outline: none;" ng-click="load(QuestionTypeToLoad.liked)">{{'questions.likedQuestions'|translate}}</a>
                         </li>
                     </ul>
-                </div>
+                </div>-->
                 [ {{ 'questions.total' | translate }}: {{filterPage.count}} ]
             </div>
             <div class="page-content-titles-actions">
