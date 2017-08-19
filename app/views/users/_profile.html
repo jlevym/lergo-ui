@@ -16,7 +16,7 @@
             </div>
             <div ng-show="!!isEditAllow">
                 <a class="btn btn-link" popover-placement="bottom" popover-trigger="focus"
-                   popover="{{'profile.changeImageText' | translate}}" tabindex="0">{{'profile.changeImageTitle' |translate}}
+                   uib-popover="{{'profile.changeImageText' | translate}}" tabindex="0">{{'profile.changeImageTitle' |translate}}
                 </a>
             </div>
         </div>
@@ -56,7 +56,7 @@
                 <i class="fa fa-question-circle"></i>
                 &#xA0;&#xA0;
                 <a ng-click="showPublicQuestion()" show-logged-in class="txt-color-darken">{{'profile.questionCreated'|translate}}</a>
-                <button popover="{{'profile.questionsNotAvailable' | translate}}"
+                <button uib-popover="{{'profile.questionsNotAvailable' | translate}}"
                       popover-placement="right" popover-trigger="focus" show-anonymous class=" btn-link txt-color-darken">{{'profile.questionCreated'|translate}}</button>
             </div>
 

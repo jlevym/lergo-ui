@@ -114,7 +114,7 @@
                             <p>{{ 'steps.type' | translate }}
                                 <sup>
                                     <!--  tabindex = 0 is use to fix focus trigger problem in google chrome -->
-                                    <a popover="{{'steps.typeHint' | translate}}" class="fa fa-question-circle"
+                                    <a uib-popover="{{'steps.typeHint' | translate}}" class="fa fa-question-circle"
                                        popover-placement="top" popover-trigger="focus" tabindex="0"
                                        style="text-decoration: none"></a>
                                 </sup>
@@ -149,7 +149,7 @@
                                 ng-disabled="saveButtonDisabled()">{{ 'steps.add' | translate }}</button>
 						<span>
 							<!--  tabindex = 0 is use to fix focus trigger problem in google chrome -->
-							<button popover="{{'steps.addHint' | translate}}"
+							<button uib-popover="{{'steps.addHint' | translate}}"
                                     popover-is-open="popoverState.open"
                                     popover-placement="{{popoverState.position}}" popover-trigger="focus"
                                     tabindex="0"></button>
