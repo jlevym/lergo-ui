@@ -3,12 +3,12 @@
 	<div class="page-content-width page-content-titles">
 		<div class="page-content-body">
 			<div class="lergo-h1">
-				<div class="btn-group" dropdown>
+				<div class="btn-group" uib-dropdown dropdown-append-to-body>
 					<button type="button" class="btn-link" dropdown-toggle style="color: #5fb9ff; text-decoration: none">
 						<span class="fa fa-caret-down"></span>
 						<span class="lergo-h1">{{('lessons.'+ lessonToLoad |translate)}} </span>
 					</button>
-					<ul class="dropdown-menu" role="menu">
+					<ul class="dropdown-menu" uib-dropdown-menu role="menu">
 						<li>
 							<a class="btn-link" style="outline: none;" ng-click="load(LessonTypeToLoad.user)">{{'lessons.myLessons'|translate}}</a>
 							<a class="btn-link" style="outline: none;" ng-click="load(LessonTypeToLoad.liked)">{{'lessons.likedLessons'|translate}}</a>
