@@ -19,7 +19,6 @@ angular.module('lergoApp').controller('HomepageCtrl', function($scope, LergoClie
 	};
 
 	$scope.loadLessons = function() {
-
 		$log.info('loading lessons');
 
 		var searchFilter = {};
@@ -71,12 +70,21 @@ angular.module('lergoApp').controller('HomepageCtrl', function($scope, LergoClie
 		persistScroll($scope.filterPage.current);
 	});
 
-	$scope.$watch('filterPage.current', function(newValue, oldValue) {
+	<!-- moving  $watch from lergoPaging and combining with $watch already here-->
+    $scope.$watch( 'filterPage.current',
+        function( newValue, oldValue ){
+            if ( newValue === oldValue ){
+                persistScroll(oldValue);
+            } else {$scope.dummyLoadLessons = $scope.loadLessons()}
+            /*scope.change(newValue, oldValue );*/
+        });
+
+	/*$scope.$watch('filterPage.current', function(newValue, oldValue) {
 		if (!!oldValue) {
 
 			persistScroll(oldValue);
 		}
-	});
+	});*/
 	function persistScroll(pageNumber) {
 		if (!$rootScope.scrollPosition) {
 			$rootScope.scrollPosition = {};

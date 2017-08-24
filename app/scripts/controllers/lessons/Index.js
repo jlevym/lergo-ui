@@ -26,6 +26,13 @@ angular.module('lergoApp').controller('LessonsIndexCtrl', function($scope, $log,
 			$scope.filterPage.updatedLast = new Date().getTime();
 		}
 	};
+    $scope.$watch( 'filterPage.updatedLast', function( newValue, oldValue ){
+        if ( newValue === oldValue ){
+            return;
+        }
+        $scope.dummyLoadLessons = $scope.loadLessons();
+        /*scope.change(newValue, oldValue);*/
+    });
 
 	$scope.loadLessons = function() {
 		$log.info('loading lessons');

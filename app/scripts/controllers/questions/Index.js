@@ -57,6 +57,14 @@ angular.module('lergoApp').controller('QuestionsIndexCtrl', function($scope, Que
 		}
 	};
 
+    $scope.$watch( 'filterPage.updatedLast', function( newValue, oldValue ){
+        if ( newValue === oldValue ){
+            return;
+        }
+        $scope.dummyLoadQuestions = $scope.loadQuestions();
+        /*scope.change(newValue, oldValue);*/
+    });
+
 	$scope.loadQuestions = function() {
 		$scope.questionToLoad = localStorageService.get('questionTypeToLoad');
 		var queryObj = {

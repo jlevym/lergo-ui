@@ -93,6 +93,14 @@ angular.module('lergoApp').controller('ReportsIndexCtrl',
 
         };
 
+        $scope.$watch( 'filterPage.updatedLast', function( newValue, oldValue ){
+         if ( newValue === oldValue ){
+         return;
+         }
+         $scope.dummyLoadReports = $scope.loadReports();
+         /*scope.change(newValue, oldValue);*/
+         });
+
         $scope.loadReports = function () {
 
             $scope.reportsPage.selectAll = false;
