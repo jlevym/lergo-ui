@@ -40,7 +40,7 @@ angular.module('lergoApp').controller('QuestionsAddUpdateDialogCtrl',
 			$scope.quizItem = quizItem;
 			// this object will be updated by child scope
 			// QuestionsUpdateCtrl.
-			$scope.permissions = {};$uibModalInstance
+			$scope.permissions = {};
 			$scope.isModal = true;
 			$scope.isCreate = true;
 			$scope.quizItem = quizItem;
