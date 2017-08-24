@@ -70,13 +70,11 @@ angular.module('lergoApp').controller('HomepageCtrl', function($scope, LergoClie
 		persistScroll($scope.filterPage.current);
 	});
 
-	<!-- moving  $watch from lergoPaging and combining with $watch already here-->
-    $scope.$watch( 'filterPage.current',
-        function( newValue, oldValue ){
+	/*moving from lergoPaging*/
+    $scope.$watch( 'filterPage.current', function( newValue, oldValue ) {
             if ( newValue === oldValue ){
                 persistScroll(oldValue);
-            } else {$scope.dummyLoadLessons = $scope.loadLessons()}
-            /*scope.change(newValue, oldValue );*/
+            } else { $scope.dummyLoadLessons = $scope.loadLessons(); }
         });
 
 	/*$scope.$watch('filterPage.current', function(newValue, oldValue) {
