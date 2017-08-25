@@ -418,7 +418,6 @@ angular.module('lergoApp').controller('LessonsUpdateCtrl',
                 'position': lang && lang.dir === 'rtl' ? 'left' : 'right'
             };
         }, function (newValue) {
-            console.log('popover position', newValue);
             $scope.popoverState = newValue;
         }, true);
     });
