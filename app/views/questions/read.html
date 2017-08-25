@@ -11,15 +11,15 @@
                             <div class="stats">
                                     <span class="stats-button age-limit-{{quizItem.age}} no-color"
                                           ng-show="!!quizItem.age"> {{quizItem.age}}+ {{'homepage.years'|translate}} </span>
-                                    <span class="stats-button" tooltip="{{'homepage.tooltip.views' | translate}}">
+                                    <span class="stats-button" uib-tooltip="{{'homepage.tooltip.views' | translate}}">
                                         <i class="fa fa-eye fa-fw"></i>
                                         {{0+quizItem.views}}
                                     </span>
-                                    <span class="stats-button" tooltip="{{'questions.tooltip.lessons' | translate}}">
+                                    <span class="stats-button" uib-tooltip="{{'questions.tooltip.lessons' | translate}}">
                                         <i class="fa fa-university fa-fw"></i>
                                         {{0+ lessons.length }}
                                     </span>
-                                    <span class="stats-button" tooltip="{{'homepage.tooltip.likes' | translate}}">
+                                    <span class="stats-button" uib-tooltip="{{'homepage.tooltip.likes' | translate}}">
                                         <i class="fa fa-heart-o"></i>
                                         {{0+questionLikes }}
                                     </span>
@@ -43,17 +43,17 @@
                             <div ng-include="getQuestionViewTemplate(quizItem)"></div>
                             <div class="details">
                                 <div class="properties">
-						<span tooltip="{{'homepage.tooltip.user' | translate}}">
+						<span uib-tooltip="{{'homepage.tooltip.user' | translate}}">
                              <a ng-href="#!/public/{{quizItem.user.username}}/profile">
                                  <i class="fa fa-user"></i>
                                  <span>{{quizItem.user.username}}</span>
                              </a>
 						</span>
-						<span tooltip="{{'lessons.createdOn' | translate}}">
+						<span uib-tooltip="{{'lessons.createdOn' | translate}}">
 							<i class="fa fa-calendar"></i>
 							<span>{{quizItem.lastUpdate | date:'d-MMM-yyyy'}}</span>
 						</span>
-						<span ng-show="!!quizItem.subject" tooltip="{{'homepage.tooltip.subject' | translate}}">
+						<span ng-show="!!quizItem.subject" uib-tooltip="{{'homepage.tooltip.subject' | translate}}">
 							<i class="fa fa-book"></i>
 							<span>{{'filters.subjects.' + quizItem.subject | translate}}</span>
 						</span>

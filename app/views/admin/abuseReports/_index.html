@@ -49,9 +49,9 @@
 							<input type="checkbox" style="margin-left: 5px;" ng-model="report.selected">
 						</td>
 						<td>
-							<a ng-show="!!report.title && report.title.trim().length > 0" tooltip="{{'reports.tooltip.go' | translate}}"
+							<a ng-show="!!report.title && report.title.trim().length > 0" uib-tooltip="{{'reports.tooltip.go' | translate}}"
 								ng-href="#!/user/lessons/{{report.itemId}}/intro">{{ report.title }}</a>
-							<a ng-show="!report.title || report.title.trim().length <= 0" tooltip="{{'reports.tooltip.go' | translate}}"
+							<a ng-show="!report.title || report.title.trim().length <= 0" uib-tooltip="{{'reports.tooltip.go' | translate}}"
 								ng-href="#!/user/lessons/{{report.itemId}}/intro">[ no title ]</a>
 						</td>
 						<td>
