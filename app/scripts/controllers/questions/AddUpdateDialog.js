@@ -35,7 +35,7 @@
  *
  */
 angular.module('lergoApp').controller('QuestionsAddUpdateDialogCtrl',
-		function($scope, $modalInstance, quizItem, lessonOverrideQuestion, QuestionsService, isUpdate, $controller, step, addItemToQuiz, $log, $filter) {
+		function($scope, $uibModalInstance, quizItem, lessonOverrideQuestion, QuestionsService, isUpdate, $controller, step, addItemToQuiz, $log, $filter) {
 
 			$scope.quizItem = quizItem;
 			// this object will be updated by child scope
@@ -181,7 +181,7 @@ angular.module('lergoApp').controller('QuestionsAddUpdateDialogCtrl',
                         return; // do nothing!
                     }
 				}
-				$modalInstance.dismiss();
+                $uibModalInstance.dismiss();
 			};
 			/**
 			 * There are so many things we need to have to enable copy and
@@ -210,7 +210,7 @@ angular.module('lergoApp').controller('QuestionsAddUpdateDialogCtrl',
 
 			$scope.copyAndReplaceQuestion = function(item) {
 				$log.info('copying and replacing question from modal instance');
-				$modalInstance.close(item);
+                $uibModalInstance.close(item);
 				// we will soon open the new modal instance with
 				// the copied question.
 				lessonOverrideQuestion(step, item._id);

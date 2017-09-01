@@ -88,6 +88,7 @@ angular.module('lergoApp')
                     /*cannot read length of undefined*/
                 }
             }
+            return false;
         };
 
         /**
