@@ -1,0 +1,5 @@
+codeship.aes
+.git
+node_modules
+env.decrypted
+dev

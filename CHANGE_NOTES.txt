@@ -1,0 +1,5 @@
+trigger another new build
+trigger new build to test repeatability of promote and upgrade
+implement build number tracker as independant file in s3 to track build numbers
+set 'CURRENT_BUILD_NUMBER' to 7 after testing 'promote build number'
+remove the set 'CURRENT_BUILD_NUMBER' 

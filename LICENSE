@@ -1,8 +1,9 @@
+
 == License and copyright information ==
 
 === License ===
 
-The LerGO project (which is run by the nonprofit organisation LerGO - Educate 
+The LerGO project (which is run by the nonprofit organisation LerGO - Educate
 Yourself (R.A))is licensed under the terms of the GNU Affero General Public License,
 version 3. Derivative works and later versions of the code must be
 free software licensed under the same or a compatible license. See
@@ -17,7 +18,7 @@ below.
 
 Some components of LerGO imported from other projects may be under other
 Free and Open Source, or Free Culture, licenses. Specific details of their
-licensing information can be found in those components. 
+licensing information can be found in those components.
 
 
 GNU AFFERO GENERAL PUBLIC LICENSE
@@ -681,4 +682,3 @@ specific requirements.
 if any, to sign a "copyright disclaimer" for the program, if necessary.
 For more information on this, and how to apply and follow the GNU AGPL, see
 <http://www.gnu.org/licenses/>.
-            
